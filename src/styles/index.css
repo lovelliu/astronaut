@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between-center {
+    @apply flex justify-between items-center;
+  }
+}
+
+::selection {
+  background-color: hsla(197, 71%, 52%, 0.2);
+  color: hsl(205, 90%, 45%);
+}
