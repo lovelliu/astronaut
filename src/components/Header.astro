@@ -26,7 +26,10 @@ const links = [
 </script>
 
 <header class="mx-auto flex-between-center max-w-3xl h-16 px-4">
-  <a href="/">
+  <a 
+    href="/" 
+    class="transition ease-in-out duration-100 hover:rotate-45 hover:text-blue-500"
+  >
     <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.5113 5.44965C17.5113 8.13769 15.0884 10.3993 11.9926 10.3993C8.89684 10.3993 6.47392 8.13769 6.47392 5.44965C6.47392 2.7616 8.89684 0.5 11.9926 0.5C15.0884 0.5 17.5113 2.7616 17.5113 5.44965Z" stroke="currentColor"/>
       <path d="M11.5374 14.6283C11.5374 17.3164 9.11446 19.578 6.01869 19.578C2.92292 19.578 0.5 17.3164 0.5 14.6283C0.5 11.9403 2.92292 9.67868 6.01869 9.67868C9.11446 9.67868 11.5374 11.9403 11.5374 14.6283Z" stroke="currentColor"/>
@@ -34,7 +37,7 @@ const links = [
       <path d="M8.06404 24.8171L12.0247 18.2378L15.9854 24.8171H8.06404Z" stroke="currentColor"/>
     </svg>    
   </a>
-  <nav class="grid grid-flow-col gap-5 font-light">
+  <nav class="grid grid-flow-col gap-1 font-light">
     {links.map(item => (
       <a 
         href={item.link} 
