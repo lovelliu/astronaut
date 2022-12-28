@@ -1,3 +1,11 @@
+const toggleButton = document.querySelector<HTMLButtonElement>('#toggle')!
+const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+const listener = (e: MediaQueryListEvent) => {
+  toggle(e.matches ? 'dark' : 'light')
+}
+
+toggleButton.addEventListener('click', toggleDarkMode)
 /**
  * @description Get user preference from localStorage
  * @returns {string} 'auto' | 'dark' | 'light'
@@ -18,42 +26,50 @@ export function getPrefersColorScheme(): string {
 
 /**
  * @description Initialize theme
- * @param toggleButton toggle button element
  */
-export function setDarkMode(toggleButton: HTMLButtonElement): void {
+export function setDarkMode(): void {
   const theme = getTheme()
   const colorScheme = getPrefersColorScheme()
+  // theme === 'auto' && mediaQuery.addEventListener('change', listener(toggleButton))
   theme === 'auto' 
     ? colorScheme === 'dark' 
-      ? toggle('dark', toggleButton) 
-      : toggle('light', toggleButton) 
+      ? toggle('dark') 
+      : toggle('light') 
     : theme === 'dark' 
-      ? toggle('dark', toggleButton) 
-      : toggle('light', toggleButton)
+      ? toggle('dark') 
+      : toggle('light')
 }
 
 /**
  * @description Toggle theme
- * @param toggleButton toggle button element
  */
-export function toggleDarkMode(toggleButton: HTMLButtonElement) {
-  return () => {
-    const colorScheme = getPrefersColorScheme()
-      const theme = getTheme()
-      const isDark = theme === 'dark' || (theme === 'auto' && colorScheme === 'dark')
-  
-      if (isDark) {
-        toggle('light', toggleButton)
-        colorScheme === 'dark' 
-          ? localStorage.setItem('theme', 'light')
-          : localStorage.setItem('theme', 'auto')
-      } 
-      else {
-        toggle('dark', toggleButton)
-        colorScheme === 'light' 
-          ? localStorage.setItem('theme', 'dark')
-          : localStorage.setItem('theme', 'auto')
-      }
+export function toggleDarkMode() {
+  const colorScheme = getPrefersColorScheme()
+  const theme = getTheme()
+  const isDark = theme === 'dark' || (theme === 'auto' && colorScheme === 'dark')
+
+  if (isDark) {
+    toggle('light')
+    if (colorScheme === 'dark') {
+      localStorage.setItem('theme', 'light')
+      console.log(1)
+      mediaQuery.removeEventListener('change', listener)
+    }
+    else {
+      localStorage.setItem('theme', 'auto')
+      mediaQuery.addEventListener('change', listener)
+    }
+  } 
+  else {
+    toggle('dark')
+    if (colorScheme === 'light') {
+      localStorage.setItem('theme', 'dark')
+      mediaQuery.removeEventListener('change', listener)
+    }
+    else {
+      localStorage.setItem('theme', 'auto')
+      mediaQuery.addEventListener('change', listener)
+    }
   }
 }
 
@@ -62,7 +78,7 @@ export function toggleDarkMode(toggleButton: HTMLButtonElement) {
  * @param mode 'dark' | 'light'
  * @param toggleButton toggle button element
  */
-export function toggle(mode: 'dark' | 'light', toggleButton: HTMLButtonElement): void {
+export function toggle(mode: 'dark' | 'light'): void {
   if (mode === 'dark') {
     toggleButton.children[0].classList.add('hidden')
     toggleButton.children[1].classList.remove('hidden')

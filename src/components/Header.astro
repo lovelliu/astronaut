@@ -7,7 +7,7 @@ const links = [
 ]
 ---
 <script>
-  import { setDarkMode, toggleDarkMode, toggle } from '../utils/darkMode'
+  import { setDarkMode } from '../utils/darkMode'
   
   const link = document.querySelector('a')!
   link.addEventListener('click', e => {
@@ -15,14 +15,7 @@ const links = [
     route === '/' && e.preventDefault()
   })
   
-  const toggleButton = document.querySelector<HTMLButtonElement>('#toggle')!
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    toggle(e.matches ? 'dark' : 'light', toggleButton)
-    
-  })
-  setDarkMode(toggleButton)
-
-  toggleButton.addEventListener('click', toggleDarkMode(toggleButton))
+  setDarkMode()
 </script>
 
 <header class="mx-auto flex-between-center max-w-3xl h-16 px-4">
@@ -48,7 +41,7 @@ const links = [
       </a>
     ))}
     <button 
-      id="toggle" 
+      id="toggle"
       class="px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
     >
       <Icon name="ion:sunny-outline" class="hidden"/>
