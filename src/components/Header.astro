@@ -8,6 +8,13 @@ const links = [
 ---
 <script>
   import { setDarkMode, toggleDarkMode, toggle } from '../utils/darkMode'
+  
+  const link = document.querySelector('a')!
+  link.addEventListener('click', e => {
+    const route = window.location.pathname
+    route === '/' && e.preventDefault()
+  })
+  
   const toggleButton = document.querySelector<HTMLButtonElement>('#toggle')!
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
     toggle(e.matches ? 'dark' : 'light', toggleButton)
@@ -19,7 +26,6 @@ const links = [
 </script>
 
 <header class="mx-auto flex-between-center max-w-3xl h-16 px-4">
-  <!-- TODO don't reload -->
   <a href="/">
     <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.5113 5.44965C17.5113 8.13769 15.0884 10.3993 11.9926 10.3993C8.89684 10.3993 6.47392 8.13769 6.47392 5.44965C6.47392 2.7616 8.89684 0.5 11.9926 0.5C15.0884 0.5 17.5113 2.7616 17.5113 5.44965Z" stroke="currentColor"/>
@@ -30,12 +36,18 @@ const links = [
   </a>
   <nav class="grid grid-flow-col gap-5 font-light">
     {links.map(item => (
-      <a href={item.link} class="px-1 py-2 rounded-lg hover:bg-gray-200">    
+      <a 
+        href={item.link} 
+        class="px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+      >    
         <Icon name={item.icon} />
         {item.name}
       </a>
     ))}
-    <button id="toggle">
+    <button 
+      id="toggle" 
+      class="px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+    >
       <Icon name="ion:sunny-outline" class="hidden"/>
       <Icon name="ion:moon-outline" class="hidden" />
     </button>
