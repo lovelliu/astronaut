@@ -30,7 +30,8 @@ export function getPrefersColorScheme(): string {
 export function setDarkMode(): void {
   const theme = getTheme()
   const colorScheme = getPrefersColorScheme()
-  // theme === 'auto' && mediaQuery.addEventListener('change', listener(toggleButton))
+  console.log(theme)
+  theme === 'auto' && mediaQuery.addEventListener('change', listener)
   theme === 'auto' 
     ? colorScheme === 'dark' 
       ? toggle('dark') 
