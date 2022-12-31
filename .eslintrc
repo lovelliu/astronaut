@@ -13,6 +13,7 @@
         "extraFileExtensions": [".astro"]
       },
       "rules": {
+        "astro/semi": ["error", "never"]
       }
     }
   ]
