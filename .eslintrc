@@ -1,5 +1,9 @@
 {
-  "extends": ["@lovelliu/eslint-config-ts", "plugin:astro/recommended"],
+  "extends": [
+    "@lovelliu/eslint-config-ts", 
+    "plugin:astro/recommended", 
+    "plugin:jsx-a11y/strict"
+  ],
   "overrides": [
     {
       "files": ["*.astro"],
