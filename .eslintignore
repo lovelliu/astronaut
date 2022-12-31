@@ -1,0 +1,23 @@
+# Ignore everything in the node_modules directory
+node_modules
+
+# Ignore build directories
+build
+
+# Ignore all files with a .test.js extension
+*.test.js
+
+# Ignore all files in the coverage directory
+coverage
+
+# Ignore all files in the dist directory
+dist
+
+# Ignore all files in the docs directory
+docs
+
+# Ignore all files in the .vscode directory
+.vscode
+
+# Ignore all files in the public directory
+public
