@@ -9,19 +9,19 @@ const links = [
 
 <script>
   import { setDarkMode } from '../utils/darkMode'
-  
+
   const link = document.querySelector('a')!
-  link.addEventListener('click', e => {
+  link.addEventListener('click', (e) => {
     const route = window.location.pathname
     route === '/' && e.preventDefault()
   })
-  
+
   setDarkMode()
 </script>
 
 <header class="mx-auto flex-between-center max-w-3xl h-16 px-4">
-  <a 
-    href="/" 
+  <a
+    href="/"
     class="transition ease-in-out duration-100 hover:rotate-45 hover:text-blue-500"
   >
     <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -29,19 +29,19 @@ const links = [
       <path d="M11.5374 14.6283C11.5374 17.3164 9.11446 19.578 6.01869 19.578C2.92292 19.578 0.5 17.3164 0.5 14.6283C0.5 11.9403 2.92292 9.67868 6.01869 9.67868C9.11446 9.67868 11.5374 11.9403 11.5374 14.6283Z" stroke="currentColor"/>
       <path d="M23.5 14.6283C23.5 17.3164 21.077 19.578 17.9813 19.578C14.8855 19.578 12.4626 17.3164 12.4626 14.6283C12.4626 11.9403 14.8855 9.67868 17.9813 9.67868C21.077 9.67868 23.5 11.9403 23.5 14.6283Z" stroke="currentColor"/>
       <path d="M8.06404 24.8171L12.0247 18.2378L15.9854 24.8171H8.06404Z" stroke="currentColor"/>
-    </svg>    
+    </svg>
   </a>
   <nav class="grid grid-flow-col gap-1 font-light">
     {links.map(item => (
-      <a 
-        href={item.link} 
+      <a
+        href={item.link}
         class="px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
-      >    
+      >
         <Icon name={item.icon} />
         {item.name}
       </a>
     ))}
-    <button 
+    <button
       id="toggle"
       class="px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
     >
