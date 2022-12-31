@@ -30,14 +30,13 @@ export function getPrefersColorScheme(): string {
 export function setDarkMode(): void {
   const theme = getTheme()
   const colorScheme = getPrefersColorScheme()
-  console.log(theme)
   theme === 'auto' && mediaQuery.addEventListener('change', listener)
-  theme === 'auto' 
-    ? colorScheme === 'dark' 
-      ? toggle('dark') 
-      : toggle('light') 
-    : theme === 'dark' 
-      ? toggle('dark') 
+  theme === 'auto'
+    ? colorScheme === 'dark'
+      ? toggle('dark')
+      : toggle('light')
+    : theme === 'dark'
+      ? toggle('dark')
       : toggle('light')
 }
 
@@ -59,7 +58,7 @@ export function toggleDarkMode() {
       localStorage.setItem('theme', 'auto')
       mediaQuery.addEventListener('change', listener)
     }
-  } 
+  }
   else {
     toggle('dark')
     if (colorScheme === 'light') {
