@@ -53,7 +53,6 @@ export function toggleDarkMode() {
     toggle('light')
     if (colorScheme === 'dark') {
       localStorage.setItem('theme', 'light')
-      console.log(1)
       mediaQuery.removeEventListener('change', listener)
     }
     else {
