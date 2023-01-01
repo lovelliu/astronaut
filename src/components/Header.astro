@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon'
 
 const links = [
   { name: '文章', link: '/posts', icon: 'ion:list' },
-  { name: '摘录', link: '/excerpts', icon: 'ion:library-outline' },
+  { name: '摘录', link: '/excerpts', icon: 'akar-icons:book' },
 ]
 ---
 
@@ -43,7 +43,7 @@ const links = [
     ))}
     <button
       id="toggle"
-      class="px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+      class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
     >
       <Icon name="ion:sunny-outline" class="hidden"/>
       <Icon name="ion:moon-outline" class="hidden" />
@@ -51,7 +51,7 @@ const links = [
   </nav>
 </header>
 
-<style>
+<style is:global>
   [astro-icon] {
     @apply mb-1 inline-block w-5 h-5;
   }
