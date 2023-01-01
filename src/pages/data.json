@@ -1,0 +1,134 @@
+{
+  "techLinks": [
+    {
+      "icon": "vscode-icons:file-type-html",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      "title": "HTML"
+    },
+    {
+      "icon": "vscode-icons:file-type-css",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      "title": "CSS"
+    },
+    {
+      "icon": "vscode-icons:file-type-less",
+      "link": "https://lesscss.org/",
+      "title": "Less"
+    },
+    {
+      "icon": "vscode-icons:file-type-vanilla-extract",
+      "link": "https://vanilla-extract.style/",
+      "title": "Vanilla Extract"
+    },
+    {
+      "icon": "vscode-icons:file-type-tailwind",
+      "link": "https://tailwindcss.com/",
+      "title": "Tailwind"
+    },
+    {
+      "icon": "vscode-icons:file-type-js-official",
+      "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      "title": "JavaScript"
+    },
+    {
+      "icon": "vscode-icons:file-type-typescript-official",
+      "link": "https://www.typescriptlang.org/",
+      "title": "TypeScript"
+    },
+    {
+      "icon": "vscode-icons:file-type-vue",
+      "link": "https://vuejs.org/",
+      "title": "Vue"
+    },
+    {
+      "icon": "vscode-icons:file-type-reactjs",
+      "link": "https://beta.reactjs.org/",
+      "title": "React"
+    },
+    {
+      "icon": "vscode-icons:file-type-next",
+      "link": "https://nextjs.org/",
+      "title": "Next"
+    },
+    {
+      "icon": "vscode-icons:file-type-astro",
+      "link": "https://astro.build/",
+      "title": "Astro"
+    },
+    {
+      "icon": "vscode-icons:file-type-eslint",
+      "link": "https://eslint.org/",
+      "title": "ESLint"
+    },
+    {
+      "icon": "vscode-icons:file-type-husky",
+      "link": "https://typicode.github.io/husky/#/",
+      "title": "Husky"
+    },
+    {
+      "icon": "vscode-icons:file-type-commitlint",
+      "link": "https://commitlint.js.org/#/",
+      "title": "Commitlint"
+    },
+    {
+      "icon": "vscode-icons:file-type-light-pnpm",
+      "link": "https://pnpm.io/",
+      "title": "pnpm"
+    },
+    {
+      "icon": "vscode-icons:file-type-webpack",
+      "link": "https://webpack.js.org/",
+      "title": "Webpack"
+    },
+    {
+      "icon": "vscode-icons:file-type-vite",
+      "link": "https://vitejs.dev/",
+      "title": "Vite"
+    },
+    {
+      "icon": "vscode-icons:file-type-git",
+      "link": "https://git-scm.com/",
+      "title": "Git"
+    },
+    {
+      "icon": "vscode-icons:file-type-gitlab",
+      "link": "https://about.gitlab.com/",
+      "title": "Gitlab"
+    },
+    {
+      "icon": "vscode-icons:file-type-gitpod",
+      "link": "https://www.gitpod.io/",
+      "title": "Gitpod"
+    },
+    {
+      "icon": "vscode-icons:file-type-node",
+      "link": "https://nodejs.org/",
+      "title": "Node"
+    },
+    {
+      "icon": "vscode-icons:file-type-nestjs",
+      "link": "https://nestjs.com/",
+      "title": "Nest"
+    },
+    {
+      "icon": "vscode-icons:file-type-mongo",
+      "link": "https://www.mongodb.com/",
+      "title": "MongoDB"
+    },
+    {
+      "icon": "vscode-icons:file-type-docker2",
+      "link": "https://code.visualstudio.com/",
+      "title": "Docker"
+    },
+    {
+      "icon": "vscode-icons:file-type-vscode",
+      "link": "https://code.visualstudio.com/",
+      "title": "VSCode"
+    },
+    {
+      "icon": "vscode-icons:file-type-drawio",
+      "link": "https://code.visualstudio.com/",
+      "title": "Draw.io"
+    }
+  ]
+}
