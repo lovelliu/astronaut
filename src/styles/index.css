@@ -16,3 +16,24 @@
   background-color: hsla(197, 71%, 52%, 0.2);
   color: hsl(205, 90%, 45%);
 }
+
+html {
+  --scrollbarBG: #ffffff00;
+  --thumbBG: #b8b8b8;
+  overflow-y: scroll;
+  overflow-x: auto;
+}
+html::-webkit-scrollbar {
+  width: 6px;
+}
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+html::-webkit-scrollbar-track {
+  background-color: var(--scrollbarBG);
+}
+html::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 5px;
+}
