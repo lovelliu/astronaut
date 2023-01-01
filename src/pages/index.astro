@@ -18,7 +18,7 @@ const stateItems = [
       <p class="text-lg font-serif">
         The only true wisdom is in knowing you know nothing.
       </p>
-      <div class="flex gap-4">
+      <div class="flex gap-4 justify-center md:justify-start">
         {
           stateItems.map(({ name, icon }) => (
               <div>
@@ -28,27 +28,29 @@ const stateItems = [
           ))
         }
       </div>
-      <p>My tech satck and common tools:</p>
-      <div class="">
-        {
-          techLinks.map(({ icon, link, title }) => (
-            <a
-              href={link}
-              class="no-underline"
-              target="_blank"
-              rel="noopener noreferrer"
-              title={title}
-            >
-              <Icon name={icon} />
-            </a>
-          ))
-        }
-      </div>
     </div>
     <Avatar />
   </div>
   <Fragment slot="content">
-    <p>hello world</p>
+    <p>My tech satck and common tools:</p>
+    <p>
+      {
+        techLinks.map(({ icon, link, title }) => (
+          <a
+            href={link}
+            class="no-underline"
+            target="_blank"
+            rel="noopener noreferrer"
+            title={title}
+          >
+            <Icon name={icon} />
+          </a>
+        ))
+      }
+    </p>
+    <p>
+      喜欢前端，喜欢一切
+    </p>
   </Fragment>
 </Layout>
 
