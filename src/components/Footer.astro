@@ -1,0 +1,18 @@
+---
+const date = new Date()
+const year = date.getFullYear()
+const from = 2022
+---
+
+<footer class="mx-auto mt-6 max-w-2xl px-4">
+  <div class="py-4 border-t text-xs font-light text-gray-400 dark:border-gray-600 dark:text-gray-300">
+    © {from === year || !from ? year : `${from} - ${year}`} | Lovell Liu
+    <p class="md:float-right">
+      This page is licensed under the
+      <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="underline">
+        CC BY-SA 4.0
+      </a>
+      .
+    </p>
+  </div>
+</footer>
