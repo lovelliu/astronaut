@@ -127,7 +127,7 @@
     },
     {
       "icon": "vscode-icons:file-type-drawio",
-      "link": "https://code.visualstudio.com/",
+      "link": "https://app.diagrams.net/",
       "title": "Draw.io"
     }
   ]
