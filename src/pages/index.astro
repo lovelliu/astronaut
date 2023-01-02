@@ -68,6 +68,23 @@ const socialItems = [
         ))
       }
     </p>
+    <p>
+      一名正在学习前端的小白，喜欢尝试新技术，敢于折腾一些新鲜的东西，并将该过程进行总结，记录到我个人最喜欢的笔记软件
+      <a
+        href="https://craft.do"
+        class="hover:underline hover:underline-offset-4"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Craft
+      </a> 中。
+    </p>
+    <p>
+      经常逛一些技术社区，比如 <strong>掘金</strong>、<strong>Medium </strong>等，也时常在<strong> Twitter </strong>上关注一些新技术的动态，偶尔在<strong> Youtube </strong>上看一些技术视频，顺遍纠正下自己的发音<Icon name="twemoji:zany-face" />。
+    </p>
+    <p>
+      技术类的书籍看的比较少，目前只阅读过这几本<Icon name="twemoji:flushed-face" />：<cite>《Professional JavaScript for Web Developers》</cite>、<cite>《Professor Frisby's Mostly Adequate Guide to Functional Programming》</cite>以及最近在看的<cite>《Refactoring UI》</cite>。
+    </p>
   </Fragment>
 </Layout>
 
@@ -78,5 +95,12 @@ const socialItems = [
 
   [astro-icon^="ri"] {
     @apply mr-4 mb-0 text-gray-400 hover:text-gray-500 active:text-gray-600;
+  }
+
+  cite {
+    font-style:normal;
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: hsl(0, 0%, 30%);
   }
 </style>
