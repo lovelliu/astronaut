@@ -22,9 +22,17 @@ const { title } = Astro.props
   <body class="transition ease-in-out duration-500 bg-day dark:bg-dark">
     <Header />
     <main class="p-7">
-      <div class="mx-auto prose mb-8 dark:prose-invert"><slot name="headline" /></div>
+      <div class="mx-auto prose prose-a:no-underline mb-4 dark:prose-invert"><slot name="headline" /></div>
       <article>
-        <div class="mx-auto prose dark:prose-invert">
+        <div
+          class="
+            mx-auto
+            prose
+          prose-a:text-blue-500
+            prose-a:no-underline
+            dark:prose-invert
+          "
+        >
           <slot name="content" />
         </div>
       </article>
