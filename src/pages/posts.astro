@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const posts = await Astro.glob('./posts/*.md')
+posts.sort((a, b) => {
+  return new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime()
+})
+---
+
+<Layout title="Posts - Lovell Liu">
+  <div slot="headline">
+    <h1>Posts</h1>
+    <p class="italic font-serif">我还在原地等你，你却已经忘记曾来过这里。</p>
+  </div>
+  <div>
+    <ul>
+      {
+        posts.map((post) => {
+          return (
+            <li>
+              <a href={post.url}>
+                <h3
+                  class="
+                    text-gray-500
+                    hover:text-gray-700
+                    dark:text-gray-300
+                    dark:hover:text-gray-100"
+                >
+                  {post.frontmatter.title}
+                </h3>
+                <div class="text-gray-400 text-sm font-serif">{post.frontmatter.date}</div>
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </div>
+</Layout>
