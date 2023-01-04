@@ -10,24 +10,38 @@ const links = [
 <script>
 import { setDarkMode } from '../utils/darkMode'
 
+const sentinel = document.querySelector('#sentinel')!
+const nav = document.querySelector('.sticky-nav')!
 const links = document.querySelectorAll('.nav-link')!
+
+setDarkMode()
+
 links.forEach((link) => {
   const route = window.location.pathname
   const isCurrent = route === link.getAttribute('href')
   link.addEventListener('click', (e) => {
     isCurrent && e.preventDefault()
   })
-
   isCurrent && link.classList.add('bg-gray-200', 'dark:bg-gray-700')
 })
 
-setDarkMode()
+const observer = new IntersectionObserver(handler)
+observer.observe(sentinel)
+
+function handler([entry]: IntersectionObserverEntry[]) {
+  if (!entry.isIntersecting)
+    nav.classList.add('md:max-w-full')
+
+  else
+    nav.classList.remove('md:max-w-full')
+}
 </script>
 
-<header class="mx-auto flex-between-center max-w-3xl h-16 px-4">
+<div id="sentinel" class="h-4 md:h-12"></div>
+<div class="sticky-nav mx-auto flex-between-center max-w-3xl h-16 px-4">
   <a
     href="/"
-    class="transition ease-in-out duration-100 hover:rotate-45 hover:text-blue-500"
+    class="p-1 transition ease-in-out duration-100 hover:rotate-45 hover:text-blue-500"
   >
     <svg width="24" height="28" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.5113 5.44965C17.5113 8.13769 15.0884 10.3993 11.9926 10.3993C8.89684 10.3993 6.47392 8.13769 6.47392 5.44965C6.47392 2.7616 8.89684 0.5 11.9926 0.5C15.0884 0.5 17.5113 2.7616 17.5113 5.44965Z" stroke="currentColor"/>
@@ -54,10 +68,18 @@ setDarkMode()
       <Icon name="ion:moon-outline" class="hidden" />
     </button>
   </nav>
-</header>
+</div>
 
 <style is:global>
   [astro-icon] {
     @apply mb-1 inline-block w-5 h-5;
+  }
+
+  .sticky-nav {
+    position: sticky;
+    top: -1px;
+    z-index: 10;
+    backdrop-filter: blur(5px);
+    transition: max-width 0.5s cubic-bezier(0.4, 0, 0, 1);
   }
 </style>
