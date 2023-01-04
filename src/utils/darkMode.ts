@@ -11,7 +11,6 @@ toggleButton.addEventListener('click', toggleDarkMode)
  * @returns {string} 'auto' | 'dark' | 'light'
  */
 export function getTheme(): string {
-  localStorage.getItem('theme') ?? localStorage.setItem('theme', 'auto')
   const theme = localStorage.getItem('theme')!
   return theme
 }

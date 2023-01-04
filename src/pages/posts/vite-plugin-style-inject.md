@@ -325,5 +325,3 @@ export default defineConfig({
 完成后回到该issue下厚着脸皮放上[项目地址](https://github.com/lhj-web/vite-plugin-style-inject) 😁
 
 ![Image.png](https://res.craft.do/user/full/a00fc09b-5dd0-bc21-aaeb-f7e491dce279/doc/A0CDE640-6014-45DA-9344-0BEB70545D6B/BE6E97BE-D62C-4F91-B75C-8A4861DDE384_2/LEDEObOy4RPhTo3KH7hWedZnSIG8srwLZg1xlBKBQTcz/Image.png)
-
-最后整理了下写了这篇文章，这是我第一次将记录发表成文，感谢您的阅读。
