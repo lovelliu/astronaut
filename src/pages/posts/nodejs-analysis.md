@@ -298,7 +298,7 @@ ArrayBuffer.prototype.split = function(sep) {
 
 新建一个**data.txt**文件，内容为：
 
-```other
+```
 Hello World
 ```
 
