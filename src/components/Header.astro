@@ -8,15 +8,20 @@ const links = [
 ---
 
 <script>
-  import { setDarkMode } from '../utils/darkMode'
+import { setDarkMode } from '../utils/darkMode'
 
-  const link = document.querySelector('a')!
+const links = document.querySelectorAll('.nav-link')!
+links.forEach((link) => {
+  const route = window.location.pathname
+  const isCurrent = route === link.getAttribute('href')
   link.addEventListener('click', (e) => {
-    const route = window.location.pathname
-    route === '/' && e.preventDefault()
+    isCurrent && e.preventDefault()
   })
 
-  setDarkMode()
+  isCurrent && link.classList.add('bg-gray-200', 'dark:bg-gray-700')
+})
+
+setDarkMode()
 </script>
 
 <header class="mx-auto flex-between-center max-w-3xl h-16 px-4">
@@ -35,7 +40,7 @@ const links = [
     {links.map(item => (
       <a
         href={item.link}
-        class="px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
+        class="nav-link px-2 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700"
       >
         <Icon name={item.icon} />
         <span class="inline-block m-1">{item.name}</span>
