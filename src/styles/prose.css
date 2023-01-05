@@ -1,0 +1,7 @@
+.prose a:hover {
+  text-decoration-line: underline !important;
+  text-underline-offset: 4px;
+}
+
+/* .prose pre[class="astro-code"] {
+} */
