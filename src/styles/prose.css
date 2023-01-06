@@ -3,5 +3,22 @@
   text-underline-offset: 4px;
 }
 
-/* .prose pre[class="astro-code"] {
-} */
+.prose :where(code):not(:where([class~="not-prose"] *)) {
+  color: hsl(0, 90%, 68%);
+  background-color: hsla(347, 78%, 68%, 0.1);
+  border-radius: 2px;
+  font-size: 0.87em;
+  padding: 0.065em 0.4em;
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::before {
+  content: "";
+}
+
+.prose :where(code):not(:where([class~="not-prose"] *))::after {
+  content: "";
+}
+
+.prose pre.astro-code :where(code):not(:where([class~="not-prose"] *)) {
+  background: none;
+}
