@@ -1,3 +1,12 @@
+const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']
+const safelist = []
+for (let i = 0; i < 7; i++) {
+  safelist.push(`bg-${colors[i]}-400`)
+  safelist.push(`dark:text-${colors[i]}-400`)
+  safelist.push(`border-l-${colors[i]}-500`)
+  safelist.push(`text-${colors[i]}-700`)
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -13,4 +22,5 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
   ],
+  safelist,
 }
