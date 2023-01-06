@@ -1,10 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { excerpts } from './data.json'
 
+interface ColorObj {
+  [key: string]: string
+}
+
+const excerptColors: ColorObj[] = []
+const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']
+for (let i = 0; i < 7; i++) {
+  const colorObj: ColorObj = {}
+  const index = i % colors.length
+  colorObj.borderColor = `border-l-${colors[index]}-500`
+  colorObj.textColor = `text-${colors[index]}-700`
+  colorObj.darkColor = `dark:text-${colors[index]}-400`
+  colorObj.bgColor = `bg-${colors[index]}-400`
+  excerptColors.push(colorObj)
+}
 ---
 
 <Layout title="Excerpts - Lovell Liu">
   <div slot="headline">
     <h1>Excerpts</h1>
+    <p class="italic font-serif">总有一句话，刻骨铭心。</p>
   </div>
+  {
+    excerpts.map((excerpt, i) => {
+      const {
+        borderColor,
+        textColor,
+        darkColor,
+        bgColor,
+      } = excerptColors[i % excerptColors.length]
+      return (
+        <div class:list={[
+          'mb-2',
+          'pl-1',
+          'border-l-4',
+          borderColor,
+          textColor,
+          darkColor,
+        ]}
+        >
+          <div class:list={[
+            'px-3', 'py-2', 'rounded', 'bg-opacity-10', bgColor,
+          ]}>
+            {
+              Object.keys(excerpt).map((key) => {
+                return (
+                  <div
+                    class={(key === 'book' || key === 'author') ? 'text-right' : ''}
+                  >
+                    {excerpt[key as keyof typeof excerpt]}
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
+      )
+    })
+  }
 </Layout>
