@@ -27,3 +27,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+html.dark .prose pre.astro-code {
+  background-color: hsl(231, 30%, 12%) !important;
+}
