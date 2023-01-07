@@ -24,3 +24,7 @@
   background: none;
   font-size: 1.05em;
 }
+
+.prose pre {
+  font-family: MONACO, Consolas, 'Courier New', monospace;
+}
