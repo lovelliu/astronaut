@@ -21,7 +21,7 @@ const { title } = Astro.props
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="transition ease-in-out duration-500 bg-day dark:bg-dark">
+  <body class="transition ease-in-out duration-500 antialiased bg-day dark:bg-dark">
     <Header />
     <main class="p-7">
       <div class="mx-auto prose prose-a:no-underline mb-4 dark:prose-invert"><slot name="headline" /></div>
