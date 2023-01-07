@@ -11,14 +11,16 @@
   padding: 0.065em 0.4em;
 }
 
-.prose :where(code):not(:where([class~="not-prose"] *))::before {
+.prose code::before {
   content: "";
 }
 
-.prose :where(code):not(:where([class~="not-prose"] *))::after {
+.prose code::after {
   content: "";
 }
 
-.prose pre.astro-code :where(code):not(:where([class~="not-prose"] *)) {
+.prose pre.astro-code code {
+  padding: 0;
   background: none;
+  font-size: 1.05em;
 }
