@@ -3,7 +3,7 @@
   text-underline-offset: 4px;
 }
 
-.prose :where(code):not(:where([class~="not-prose"] *)) {
+.prose code {
   color: hsl(0, 90%, 68%);
   background-color: hsla(347, 78%, 68%, 0.1);
   border-radius: 2px;
@@ -23,8 +23,7 @@
   padding: 0;
   background: none;
   font-size: 1.05em;
-}
-
-.prose pre {
   font-family: MONACO, Consolas, 'Courier New', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
