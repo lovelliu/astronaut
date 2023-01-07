@@ -28,7 +28,10 @@ posts.sort((a, b) => {
                 >
                   {post.frontmatter.title}
                 </h3>
-                <div class="text-gray-400 text-sm font-serif">{post.frontmatter.date}</div>
+                <div class="text-gray-400 text-sm font-serif">
+                  {post.frontmatter.date}
+                  <span class="ml-2">{post.frontmatter.minutesRead}</span>
+                </div>
               </a>
             </li>
           )

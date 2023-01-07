@@ -10,6 +10,8 @@ specifiers:
   eslint: ^8.31.0
   eslint-plugin-astro: ^0.21.1
   eslint-plugin-jsx-a11y: ^6.6.1
+  mdast-util-to-string: ^3.1.0
+  reading-time: ^1.5.0
   tailwindcss: ^3.2.4
   typescript: ^4.9.4
 
@@ -18,6 +20,8 @@ dependencies:
   '@astrojs/tailwind': 2.1.3_tailwindcss@3.2.4
   astro: 1.9.0
   astro-icon: 0.8.0
+  mdast-util-to-string: 3.1.0
+  reading-time: 1.5.0
 
 devDependencies:
   '@lovelliu/eslint-config-ts': 0.0.9_iukboom6ndih5an6iafl45j2fe
@@ -4274,6 +4278,10 @@ packages:
     engines: {node: '>=8.10.0'}
     dependencies:
       picomatch: 2.3.1
+
+  /reading-time/1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
+    dev: false
 
   /recast/0.20.5:
     resolution: {integrity: sha512-E5qICoPoNL4yU0H0NoBDntNB0Q5oMSNh9usFctYniLBluTthi3RsQVBXIJNbApOlvSwW/RGxIuokPcAc59J5fQ==}
