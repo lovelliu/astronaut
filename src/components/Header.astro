@@ -8,13 +8,11 @@ const links = [
 ---
 
 <script>
-import { setDarkMode } from '../utils/darkMode'
+import '../utils/darkMode'
 
 const sentinel = document.querySelector('#sentinel')!
 const nav = document.querySelector('.sticky-nav')!
 const links = document.querySelectorAll('.nav-link')!
-
-setDarkMode()
 
 links.forEach((link) => {
   const route = window.location.pathname

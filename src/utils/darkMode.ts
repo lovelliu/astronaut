@@ -1,3 +1,5 @@
+import { getPrefersColorScheme, getTheme } from '.'
+
 const toggleButton = document.querySelector<HTMLButtonElement>('#toggle')!
 const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
 
@@ -6,38 +8,18 @@ const listener = (e: MediaQueryListEvent) => {
 }
 
 toggleButton.addEventListener('click', toggleDarkMode)
-/**
- * @description Get user preference from localStorage
- * @returns {string} 'auto' | 'dark' | 'light'
- */
-export function getTheme(): string {
-  const theme = localStorage.getItem('theme')!
-  return theme
-}
 
-/**
- * @description Get system preference
- * @returns {string} 'auto' | 'dark' | 'light'
- */
-export function getPrefersColorScheme(): string {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
-}
-
-/**
- * @description Initialize theme
- */
-export function setDarkMode(): void {
-  const theme = getTheme()
-  const colorScheme = getPrefersColorScheme()
-  theme === 'auto' && mediaQuery.addEventListener('change', listener)
-  theme === 'auto'
-    ? colorScheme === 'dark'
-      ? toggle('dark')
-      : toggle('light')
-    : theme === 'dark'
-      ? toggle('dark')
-      : toggle('light')
-}
+// Initialize theme
+const theme = getTheme()
+const colorScheme = getPrefersColorScheme()
+theme === 'auto' && mediaQuery.addEventListener('change', listener)
+theme === 'auto'
+  ? colorScheme === 'dark'
+    ? toggle('dark')
+    : toggle('light')
+  : theme === 'dark'
+    ? toggle('dark')
+    : toggle('light')
 
 /**
  * @description Toggle theme
