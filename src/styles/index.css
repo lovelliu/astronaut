@@ -20,6 +20,7 @@
 html {
   --scrollbarBG: hsla(0, 0%, 100%, 0);
   --thumbBG: hsl(0, 0%, 85%);
+  --bg-dot-color: hsl(210, 80%, 60%);
   overflow-y: scroll;
   overflow-x: auto;
 }
@@ -36,4 +37,8 @@ html::-webkit-scrollbar-track {
 html::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 10px;
+}
+
+html.dark {
+  --bg-dot-color: white;
 }
