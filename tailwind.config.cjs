@@ -1,3 +1,6 @@
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
+const plugin = require('tailwindcss/plugin')
+
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']
 const safelist = []
 for (let i = 0; i < 7; i++) {
@@ -21,6 +24,10 @@ module.exports = {
   darkMode: 'class',
   plugins: [
     require('@tailwindcss/typography'),
+    plugin(({ addVariant }) => {
+      addVariant('children', '&>*')
+      addVariant('children-after', '&>*::after')
+    }),
   ],
   safelist,
 }
