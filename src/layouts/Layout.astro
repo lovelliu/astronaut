@@ -50,7 +50,7 @@ const { title } = Astro.props
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 NProgress.start()
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('load', () => {
   NProgress.done()
 })
 </script>
