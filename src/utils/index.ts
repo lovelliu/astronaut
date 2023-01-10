@@ -9,7 +9,7 @@ export function getTheme(): string {
 
 /**
  * @description Get system preference
- * @returns {string} 'auto' | 'dark' | 'light'
+ * @returns {string} 'dark' | 'light'
  */
 export function getPrefersColorScheme(): string {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
