@@ -49,8 +49,18 @@ const { title } = Astro.props
 <script>
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+
 NProgress.start()
+const timer = setInterval(() => {
+  NProgress.inc()
+}, 1000)
+
 window.addEventListener('load', () => {
+  clearInterval(timer)
   NProgress.done()
+})
+
+window.addEventListener('unload', () => {
+  NProgress.start()
 })
 </script>
