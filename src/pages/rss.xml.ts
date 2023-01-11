@@ -1,6 +1,6 @@
 import rss from '@astrojs/rss'
 
-const postImportResult = import.meta.glob('../posts/**/*.md', { eager: true })
+const postImportResult = import.meta.glob('./posts/*.md', { eager: true })
 const posts = Object.values(postImportResult)
 
 export const get = () => rss({
