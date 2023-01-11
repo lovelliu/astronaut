@@ -63,12 +63,10 @@ export function toggle(mode: 'dark' | 'light'): void {
     toggleButton.children[0].classList.add('hidden')
     toggleButton.children[1].classList.remove('hidden')
     document.documentElement.classList.add('dark')
-    document.documentElement.style.colorScheme = 'dark'
   }
   else {
     toggleButton.children[0].classList.remove('hidden')
     toggleButton.children[1].classList.add('hidden')
     document.documentElement.classList.remove('dark')
-    document.documentElement.style.colorScheme = 'light'
   }
 }

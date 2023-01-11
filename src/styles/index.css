@@ -21,6 +21,8 @@ html {
   --scrollbarBG: hsla(0, 0%, 100%, 0);
   --thumbBG: hsl(0, 0%, 85%);
   --bg-dot-color: hsl(210, 80%, 60%);
+  --color-scheme: light;
+  color-scheme: var(--color-scheme);
   overflow-y: scroll;
   overflow-x: auto;
 }
@@ -41,4 +43,5 @@ html::-webkit-scrollbar-thumb {
 
 html.dark {
   --bg-dot-color: white;
+  --color-scheme: dark;
 }
