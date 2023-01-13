@@ -5,6 +5,8 @@ author: Lovell Liu
 date: 2022-5-2
 ---
 
+## TOC
+
 **函数式编程是一种编程范式，主要是利用函数把运算过程封装起来，通过组合各种函数来计算结果。**
 
 ## 1. 高阶函数（Higher-order function）
