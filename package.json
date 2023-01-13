@@ -15,7 +15,8 @@
     "astro-icon": "^0.8.0",
     "mdast-util-to-string": "^3.1.0",
     "nprogress": "^0.2.0",
-    "reading-time": "^1.5.0"
+    "reading-time": "^1.5.0",
+    "remark-toc": "^8.0.1"
   },
   "devDependencies": {
     "@lovelliu/eslint-config-ts": "^0.0.9",

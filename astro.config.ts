@@ -1,6 +1,7 @@
 import { defineConfig } from 'astro/config'
 import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
+import remarkToc from 'remark-toc'
 import { setThemeIntegration } from './src/utils/setThemeIntegration'
 import { remarkReadingTime } from './src/utils/readingTime'
 
@@ -17,7 +18,7 @@ export default defineConfig({
   ],
   site: 'https://lovelliu.me',
   markdown: {
-    remarkPlugins: [remarkReadingTime],
+    remarkPlugins: [remarkReadingTime, remarkToc],
     shikiConfig: {
       theme: 'material-palenight',
     },
