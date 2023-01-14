@@ -13,6 +13,7 @@ import '../utils/darkMode'
 const sentinel = document.querySelector('#sentinel')!
 const nav = document.querySelector('.sticky-nav')!
 const links = document.querySelectorAll('.nav-link')!
+const toc = document.querySelector('#toc + ul')
 
 links.forEach((link) => {
   const route = window.location.pathname
@@ -27,11 +28,15 @@ const observer = new IntersectionObserver(handler)
 observer.observe(sentinel)
 
 function handler([entry]: IntersectionObserverEntry[]) {
-  if (!entry.isIntersecting)
+  if (!entry.isIntersecting) {
     nav.classList.add('md:max-w-full')
+    toc && toc.classList.add('!opacity-100', '!pointer-events-auto')
+  }
 
-  else
+  else {
     nav.classList.remove('md:max-w-full')
+    toc && toc.classList.remove('!opacity-100', '!pointer-events-auto')
+  }
 }
 </script>
 

@@ -41,7 +41,6 @@ html.dark .prose img {
 }
 
 #toc + ul {
-  display: none;
   position: fixed;
   top: 80px;
   right: 0px;
@@ -53,6 +52,9 @@ html.dark .prose img {
   white-space: nowrap;
   overflow-x: hidden;
   overflow-y: auto;
+  transition: all 0.4s ease-out;
+  opacity: 0;
+  pointer-events: none;
 }
 
 #toc + ul li {
@@ -74,8 +76,8 @@ html.dark .prose img {
 
 
 
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
   #toc + ul {
-    display: block;
+    display: none;
   }
 }
