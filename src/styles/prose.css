@@ -68,16 +68,21 @@ html.dark .prose img {
 
 #toc + ul a {
   color: hsl(218, 11%, 65%);
+  transition: all 0.2s ease-in-out;
 }
 
 #toc + ul a:hover {
-  color: gray;
+  color: gray;;
 }
-
-
 
 @media (max-width: 1200px) {
   #toc + ul {
     display: none;
   }
+}
+
+.active {
+  color: gray !important;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }

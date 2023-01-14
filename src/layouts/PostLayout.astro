@@ -6,6 +6,30 @@ const { frontmatter } = Astro.props
 const { title, date, minutesRead } = frontmatter
 ---
 
+<script>
+window.addEventListener('load', () => {
+  const headlines = document.querySelectorAll('h2:not([id=toc]), h3')
+  const scrollHandler = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry) => {
+      const id = encodeURIComponent(entry.target.getAttribute('id')!)
+      const activeLink = document.querySelector('#toc + ul a.active')
+      const link = document.querySelector(`#toc + ul a[href="#${id}"]`)!
+      if (entry.isIntersecting) {
+        activeLink?.classList.remove('active')
+        link.classList.add('active')
+      }
+    })
+  }
+
+  const observer = new IntersectionObserver(scrollHandler, {
+    rootMargin: '0% 0px -90% 0px',
+  })
+  headlines.forEach((headline) => {
+    observer.observe(headline)
+  })
+})
+</script>
+
 <Layout title={title}>
   <div slot="headline">
     <h1>{title}</h1>
