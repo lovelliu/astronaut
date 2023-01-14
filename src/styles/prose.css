@@ -83,6 +83,6 @@ html.dark .prose img {
 
 .active {
   color: gray !important;
-  text-decoration: underline;
+  text-decoration: underline !important;
   text-underline-offset: 4px;
 }

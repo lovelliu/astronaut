@@ -7,39 +7,6 @@ const links = [
 ]
 ---
 
-<script>
-import '../utils/darkMode'
-
-const sentinel = document.querySelector('#sentinel')!
-const nav = document.querySelector('.sticky-nav')!
-const links = document.querySelectorAll('.nav-link')!
-const toc = document.querySelector('#toc + ul')
-
-links.forEach((link) => {
-  const route = window.location.pathname
-  const isCurrent = route === link.getAttribute('href')
-  link.addEventListener('click', (e) => {
-    isCurrent && e.preventDefault()
-  })
-  isCurrent && link.classList.add('bg-gray-200', 'dark:bg-gray-700')
-})
-
-const observer = new IntersectionObserver(handler)
-observer.observe(sentinel)
-
-function handler([entry]: IntersectionObserverEntry[]) {
-  if (!entry.isIntersecting) {
-    nav.classList.add('md:max-w-full')
-    toc && toc.classList.add('!opacity-100', '!pointer-events-auto')
-  }
-
-  else {
-    nav.classList.remove('md:max-w-full')
-    toc && toc.classList.remove('!opacity-100', '!pointer-events-auto')
-  }
-}
-</script>
-
 <div id="sentinel" class="h-4 md:h-12"></div>
 <div class="sticky-nav mx-auto flex-between-center max-w-3xl h-16 px-4">
   <a
@@ -92,3 +59,36 @@ function handler([entry]: IntersectionObserverEntry[]) {
     transition: max-width 0.5s cubic-bezier(0.4, 0, 0, 1);
   }
 </style>
+
+<script>
+import '../utils/darkMode'
+
+const sentinel = document.querySelector('#sentinel')!
+const nav = document.querySelector('.sticky-nav')!
+const links = document.querySelectorAll('.nav-link')!
+const toc = document.querySelector('#toc + ul')
+
+links.forEach((link) => {
+  const route = window.location.pathname
+  const isCurrent = route === link.getAttribute('href')
+  link.addEventListener('click', (e) => {
+    isCurrent && e.preventDefault()
+  })
+  isCurrent && link.classList.add('bg-gray-200', 'dark:bg-gray-700')
+})
+
+const observer = new IntersectionObserver(handler)
+observer.observe(sentinel)
+
+function handler([entry]: IntersectionObserverEntry[]) {
+  if (!entry.isIntersecting) {
+    nav.classList.add('md:max-w-full')
+    toc && toc.classList.add('!opacity-100', '!pointer-events-auto')
+  }
+
+  else {
+    nav.classList.remove('md:max-w-full')
+    toc && toc.classList.remove('!opacity-100', '!pointer-events-auto')
+  }
+}
+</script>
