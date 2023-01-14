@@ -18,7 +18,7 @@ export default defineConfig({
   ],
   site: 'https://lovelliu.me',
   markdown: {
-    remarkPlugins: [remarkReadingTime, remarkToc],
+    remarkPlugins: [remarkReadingTime, [remarkToc, { maxDepth: 3, tight: true }]],
     shikiConfig: {
       theme: 'material-palenight',
     },

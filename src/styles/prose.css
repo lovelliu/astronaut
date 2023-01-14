@@ -31,3 +31,47 @@
 html.dark .prose pre.astro-code {
   background-color: hsl(231, 30%, 12%) !important;
 }
+
+#toc {
+  display: none;
+}
+
+#toc + ul {
+  display: none;
+  position: fixed;
+  top: 80px;
+  right: 0px;
+  bottom: 0;
+  width: 200px;
+  padding: 0;
+  font-size: 0.85em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#toc + ul li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#toc + ul ul {
+  margin: 0;
+}
+
+#toc + ul a {
+  color: hsl(218, 11%, 65%);
+}
+
+#toc + ul a:hover {
+  color: gray;
+}
+
+
+
+@media (min-width: 1200px) {
+  #toc + ul {
+    display: block;
+  }
+}
