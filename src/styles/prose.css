@@ -12,11 +12,11 @@
 }
 
 .prose code::before {
-  content: "";
+  content: none;
 }
 
 .prose code::after {
-  content: "";
+  content: none;
 }
 
 .prose pre.astro-code code {
@@ -48,31 +48,38 @@ html.dark .prose img {
   width: 200px;
   padding: 0;
   font-size: 0.85em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   overflow-x: hidden;
   overflow-y: auto;
+  white-space: nowrap;
   transition: all 0.4s ease-out;
   opacity: 0;
   pointer-events: none;
+}
+
+#toc + ul ul {
+  margin: 0;
 }
 
 #toc + ul li {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-#toc + ul ul {
-  margin: 0;
+  line-height: 1.6;
 }
 
 #toc + ul a {
+  margin: 0;
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   color: hsl(218, 11%, 65%);
   transition: all 0.2s ease-in-out;
 }
 
 #toc + ul a:hover {
-  color: gray;;
+  color: gray;
 }
 
 @media (max-width: 1200px) {
