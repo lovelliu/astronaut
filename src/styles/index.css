@@ -15,6 +15,7 @@
 html {
   --scrollbarBG: hsla(0, 0%, 100%, 0);
   --thumbBG: hsl(0, 0%, 85%);
+  --thumbBG-hover: hsl(0, 0%, 65%);
   --bg-dot-color: hsl(210, 80%, 60%);
   --color-scheme: light;
   color-scheme: var(--color-scheme);
@@ -30,9 +31,11 @@ html {
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
 
-
 ::-webkit-scrollbar {
   width: 5px;
+}
+::-webkit-scrollbar:horizontal {
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
   background-color: var(--scrollbarBG);
@@ -40,6 +43,9 @@ html {
 ::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--thumbBG-hover);
 }
 
 ::selection {
