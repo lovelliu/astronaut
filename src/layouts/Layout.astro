@@ -27,6 +27,12 @@ const { title } = Astro.props
     <meta property="og:image" content={
       `https://og.lovelliu.me/api/og?title=${title.replace(/(\s-\s)?Lovell\sLiu/, '')}`
     }>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lovell Liu">
+    <meta name="twitter:description" content="Lovell Liu's blog">
+    <meta name="twitter:iamge" content={
+      `https://og.lovelliu.me/api/og?title=${title.replace(/(\s-\s)?Lovell\sLiu/, '')}`
+    }>
     <title>{title}</title>
   </head>
   <body class="transition-[background-color] ease-in-out duration-500 bg-day dark:bg-dark">
