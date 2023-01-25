@@ -23,7 +23,7 @@ const { title } = Astro.props
     <meta name="og:title" content="Lovell Liu">
     <meta name="og:description" content="Lovell Liu's blog">
     <meta name="og:image" content={
-      `og.lovelliu.me/api/og?title=${title.replace(/(\s-\s)?Lovell\sLiu/, '')}`
+      `https://og.lovelliu.me/api/og?title=${title.replace(/(\s-\s)?Lovell\sLiu/, '')}`
     }>
     <title>{title}</title>
   </head>
