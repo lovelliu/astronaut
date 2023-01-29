@@ -19,7 +19,7 @@
     "remark-toc": "^8.0.1"
   },
   "devDependencies": {
-    "@lovelliu/eslint-config-ts": "^0.0.9",
+    "@lovelliu/eslint-config": "^0.0.12",
     "@tailwindcss/typography": "^0.5.8",
     "@types/nprogress": "^0.2.0",
     "eslint": "^8.31.0",
