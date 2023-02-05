@@ -3,6 +3,7 @@
     "astro",
     "astrojs",
     "mdast",
-    "shiki"
+    "shiki",
+    "TTFB"
   ]
 }
