@@ -52,8 +52,6 @@ html.dark .prose img {
   overflow-y: auto;
   white-space: nowrap;
   transition: all 0.4s ease-out;
-  opacity: 0;
-  pointer-events: none;
 }
 
 #toc + ul ul {

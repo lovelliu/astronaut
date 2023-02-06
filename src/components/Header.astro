@@ -95,13 +95,13 @@ observer.observe(sentinel)
 function handler([entry]: IntersectionObserverEntry[]) {
   if (!entry.isIntersecting) {
     nav.classList.add('md:max-w-full')
-    toc && toc.classList.add('!opacity-100', '!pointer-events-auto')
+    toc && toc.classList.remove('opacity-0', 'pointer-events-none')
     topButton.classList.remove('opacity-0', 'pointer-events-none')
   }
 
   else {
     nav.classList.remove('md:max-w-full')
-    toc && toc.classList.remove('!opacity-100', '!pointer-events-auto')
+    toc && toc.classList.add('opacity-0', 'pointer-events-none')
     topButton.classList.add('opacity-0', 'pointer-events-none')
   }
 }
