@@ -45,7 +45,9 @@ const links = [
     </a>
   </nav>
 </div>
-<button class="top fixed hidden right-56 bottom-10"><Icon name="ion:md-arrow-round-up" /></button>
+<button class="top fixed right-56 bottom-10">
+  <Icon name="ion:md-arrow-round-up" />
+</button>
 
 <style is:global>
   [astro-icon] {
@@ -53,7 +55,7 @@ const links = [
   }
 
   .top [astro-icon] {
-    @apply mb-1 inline-block w-7 h-7;
+    @apply mb-1 inline-block w-7 h-7 text-gray-600 dark:text-gray-200;
   }
 
   .sticky-nav {
@@ -94,14 +96,13 @@ function handler([entry]: IntersectionObserverEntry[]) {
   if (!entry.isIntersecting) {
     nav.classList.add('md:max-w-full')
     toc && toc.classList.add('!opacity-100', '!pointer-events-auto')
-    topButton.classList.remove('hidden')
+    topButton.classList.remove('opacity-0', 'pointer-events-none')
   }
 
   else {
     nav.classList.remove('md:max-w-full')
     toc && toc.classList.remove('!opacity-100', '!pointer-events-auto')
-    topButton.classList.remove('opacity-100', 'pointer-events-auto')
-    topButton.classList.add('hidden')
+    topButton.classList.add('opacity-0', 'pointer-events-none')
   }
 }
 </script>
