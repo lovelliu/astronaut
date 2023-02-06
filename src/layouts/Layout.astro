@@ -33,6 +33,7 @@ const { title } = Astro.props
     <meta name="twitter:iamge" content={
       `https://og.lovelliu.me/api/og?title=${title.replace(/(\s-\s)?Lovell\sLiu/, '')}`
     }>
+    <meta name="baidu-site-verification" content="codeva-BNULv2DMKf" />
     <title>{title}</title>
     <script>
       import { inject } from '@vercel/analytics'
@@ -54,7 +55,9 @@ const { title } = Astro.props
   <body class="transition-[background-color] ease-in-out duration-500 bg-day dark:bg-dark">
     <Header />
     <main class="p-7">
-      <div class="mx-auto prose prose-a:no-underline mb-4 dark:prose-invert"><slot name="headline" /></div>
+      <div class="mx-auto prose prose-a:no-underline mb-4 dark:prose-invert">
+        <slot name="headline" />
+      </div>
       <article>
         <div
           class="
