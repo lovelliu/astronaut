@@ -52,3 +52,23 @@ html {
   background-color: hsla(197, 71%, 52%, 0.2);
   color: hsl(205, 90%, 45%);
 }
+
+main {
+  animation: enter 0.5s ease-in-out;
+}
+
+@keyframes enter {
+  0% {
+    transform: translateY(70px);
+    opacity: 0;
+  }
+  
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
