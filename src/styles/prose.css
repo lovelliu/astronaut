@@ -46,11 +46,13 @@ html.dark .prose img {
   right: 0px;
   bottom: 0;
   width: 200px;
+  opacity: 0;
   padding: 0;
   font-size: 0.85em;
   overflow-x: hidden;
   overflow-y: auto;
   white-space: nowrap;
+  pointer-events: none;
   transition: all 0.4s ease-out;
 }
 

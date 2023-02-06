@@ -45,7 +45,7 @@ const links = [
     </a>
   </nav>
 </div>
-<button class="top fixed right-56 bottom-10">
+<button class="top fixed right-56 bottom-10 opacity-0">
   <Icon name="ion:md-arrow-round-up" />
 </button>
 
@@ -95,13 +95,13 @@ observer.observe(sentinel)
 function handler([entry]: IntersectionObserverEntry[]) {
   if (!entry.isIntersecting) {
     nav.classList.add('md:max-w-full')
-    toc && toc.classList.remove('opacity-0', 'pointer-events-none')
+    toc && toc.classList.add('!opacity-100', '!pointer-events-auto')
     topButton.classList.remove('opacity-0', 'pointer-events-none')
   }
 
   else {
     nav.classList.remove('md:max-w-full')
-    toc && toc.classList.add('opacity-0', 'pointer-events-none')
+    toc && toc.classList.remove('!opacity-100', '!pointer-events-auto')
     topButton.classList.add('opacity-0', 'pointer-events-none')
   }
 }
