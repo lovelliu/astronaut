@@ -1,4 +1,3 @@
-/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const plugin = require('tailwindcss/plugin')
 
 const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple']
@@ -18,6 +17,9 @@ module.exports = {
       colors: {
         day: 'hsl(210, 29%, 97%)',
         dark: 'hsl(217, 24%, 17%)',
+      },
+      fontFamily: {
+        sans: ['LXGWWenKai', 'sans-serif'],
       },
     },
   },
