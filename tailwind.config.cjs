@@ -20,6 +20,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['LXGWWenKai', 'sans-serif'],
+        mono: ['LXGWWenKaiMono', 'monospace'],
       },
     },
   },
