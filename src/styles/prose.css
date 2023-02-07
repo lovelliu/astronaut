@@ -84,10 +84,6 @@ html.dark .prose img {
   #toc + ul {
     display: none;
   }
-
-  .top {
-    display: none;
-  }
 }
 
 .active {

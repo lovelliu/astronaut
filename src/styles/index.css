@@ -79,6 +79,12 @@ html {
   color: hsl(205, 90%, 45%);
 }
 
+@media (max-width: 1200px) {
+  .top {
+    display: none;
+  }
+}
+
 main {
   animation: enter 0.5s ease-in-out;
 }
