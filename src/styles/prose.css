@@ -8,7 +8,8 @@
   background-color: hsla(347, 78%, 68%, 0.1);
   border-radius: 2px;
   @apply font-mono;
-  font-size: 0.87em;
+  font-size: 0.95em;
+  font-weight: 700;
   padding: 0.065em 0.4em;
 }
 
@@ -35,6 +36,10 @@ html.dark .prose img {
   filter: brightness(0.8);
 }
 
+ul {
+  font-size: 17px;
+}
+
 #toc {
   display: none;
 }
@@ -47,7 +52,7 @@ html.dark .prose img {
   width: 200px;
   opacity: 0;
   padding: 0;
-  font-size: 0.85em;
+  font-size: 0.95em;
   overflow-x: hidden;
   overflow-y: auto;
   white-space: nowrap;
