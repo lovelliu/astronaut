@@ -8,7 +8,7 @@
     src: url('/fonts/LXGWWenKai-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: optional;
+    font-display: swap;
   }
 
   @font-face {
@@ -16,7 +16,7 @@
     src: url('/fonts/LXGWWenKai-Bold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: optional;
+    font-display: swap;
   }
 
   @font-face {
@@ -24,7 +24,7 @@
     src: url('/fonts/LXGWWenKaiMono-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-    font-display: optional;
+    font-display: swap;
   }
 }
 
