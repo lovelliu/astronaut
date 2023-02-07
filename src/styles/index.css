@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
   @font-face {
     font-family: 'LXGWWenKai';
     src: url('/fonts/LXGWWenKai-Regular.ttf') format('truetype');
@@ -26,7 +26,7 @@
     font-style: normal;
     font-display: swap;
   }
-}
+} */
 
 @layer components {
   .flex-center {

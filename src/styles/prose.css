@@ -7,6 +7,7 @@
   color: hsl(0, 90%, 68%);
   background-color: hsla(347, 78%, 68%, 0.1);
   border-radius: 2px;
+  @apply font-mono;
   font-size: 0.87em;
   padding: 0.065em 0.4em;
 }
