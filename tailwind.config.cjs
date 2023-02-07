@@ -19,8 +19,9 @@ module.exports = {
         dark: 'hsl(217, 24%, 17%)',
       },
       fontFamily: {
-        sans: ['LXGWWenKai', 'sans-serif'],
-        mono: ['LXGWWenKaiMono', 'monospace'],
+        'sans': ['LXGWWenKai', 'sans-serif'],
+        'sans-bold': ['LXGWWenKaiBold', 'sans-serif'],
+        'mono': ['LXGWWenKaiMono', 'monospace'],
       },
     },
   },

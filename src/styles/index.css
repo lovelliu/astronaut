@@ -12,6 +12,14 @@
   }
 
   @font-face {
+    font-family: 'LXGWWenKaiBold';
+    src: url('/fonts/LXGWWenKai-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
     font-family: 'LXGWWenKaiMono';
     src: url('/fonts/LXGWWenKaiMono-Regular.ttf') format('truetype');
     font-weight: normal;
