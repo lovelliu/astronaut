@@ -65,8 +65,6 @@ export default defineConfig({
 
 配置完上述提及到的后，我接着寻找与打包样式相关的内容，然而并没有发现。。。
 
-![7625CB0E-F4E2-4AC2-BFFC-DC8C00CD604C.jpeg](https://res.craft.do/user/full/a00fc09b-5dd0-bc21-aaeb-f7e491dce279/doc/A0CDE640-6014-45DA-9344-0BEB70545D6B/C5336C87-5C38-485B-9F8F-331795179CB6_2/2yTh76hnkPd2N5KZN5DV6nbEnzO1Gtyyxv8YSWqFDF8z/7625CB0E-F4E2-4AC2-BFFC-DC8C00CD604C.jpeg)
-
 没关系，我们还可以去仓库[`issues`](https://github.com/vitejs/vite/issues/1579)看看，说不定有人也发现了这个问题。搜索后果不其然，底下竟有高达47条评论：
 
 ![Image.png](https://res.craft.do/user/full/a00fc09b-5dd0-bc21-aaeb-f7e491dce279/doc/A0CDE640-6014-45DA-9344-0BEB70545D6B/8ACB2607-B0C3-4ACE-A7E3-C8F4E3D2F0D7_2/5lTfTDdm5Up73RrFPpdMukYJwKdrzy9U2Je8H5dMiAYz/Image.png)
