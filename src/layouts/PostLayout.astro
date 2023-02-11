@@ -24,10 +24,10 @@ window.addEventListener('load', () => {
     entries.forEach((entry) => {
       const id = encodeURIComponent(entry.target.getAttribute('id')!)
       const activeLink = document.querySelector('#toc + ul a.active')
-      const link = document.querySelector(`#toc + ul a[href="#${id}"]`)!
+      const link = document.querySelector(`#toc + ul a[href="#${id}"]`)
       if (entry.isIntersecting) {
         activeLink?.classList.remove('active')
-        link.classList.add('active')
+        link?.classList.add('active')
       }
     })
   }
