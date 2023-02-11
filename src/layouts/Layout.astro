@@ -39,12 +39,7 @@ const { title, isBold } = Astro.props
     <meta name="baidu-site-verification" content="codeva-BNULv2DMKf" />
     <title>{title}</title>
     <script>
-      import { inject } from '@vercel/analytics'
       import { webVitals } from '../lib/vitals'
-      // @ts-expect-error: process.env.NODE_ENV is required by @vercel/analytics internally
-      // so that it can determine the correct path for importing the analytics script
-      globalThis.process = { env: { NODE_ENV: import.meta.env.MODE } }
-      inject()
       const analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID
       if (analyticsId) {
         webVitals({
