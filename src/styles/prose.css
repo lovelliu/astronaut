@@ -17,6 +17,7 @@
   --astro-code-color-background: #111827;
   --astro-code-token-constant: #a1a1aa;
   --astro-code-token-keyword: #0891b2;
+  --astro-code-token-punctuation: #cbd5e1;
 }
 
 .prose a:hover {
