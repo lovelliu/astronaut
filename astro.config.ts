@@ -20,7 +20,7 @@ export default defineConfig({
   markdown: {
     remarkPlugins: [remarkReadingTime, [remarkToc, { maxDepth: 3, tight: true }]],
     shikiConfig: {
-      theme: 'material-palenight',
+      theme: 'css-variables',
     },
   },
 })

@@ -1,3 +1,24 @@
+:root {
+  --astro-code-color-text: #575279;
+  --astro-code-color-background: #f3f4f6;
+  --astro-code-token-constant: #575279;
+  --astro-code-token-string: #ea9d34;
+  --astro-code-token-comment: #9893a5;
+  --astro-code-token-keyword: #286983;
+  --astro-code-token-parameter: #0d9488;
+  --astro-code-token-function: #D7827E;
+  --astro-code-token-string-expression: #EA9D34;
+  --astro-code-token-punctuation: #797593;
+  --astro-code-token-link: #ef4444;
+}
+
+:root.dark {
+  --astro-code-color-text: #a1a1aa;
+  --astro-code-color-background: #111827;
+  --astro-code-token-constant: #a1a1aa;
+  --astro-code-token-keyword: #0891b2;
+}
+
 .prose a:hover {
   text-decoration-line: underline !important;
   text-underline-offset: 4px;
@@ -7,7 +28,7 @@
   color: hsl(0, 90%, 68%);
   background-color: hsla(347, 78%, 68%, 0.1);
   border-radius: 2px;
-  @apply font-mono;
+  @apply font-sans;
   font-size: 0.95em;
   font-weight: 700;
   padding: 0.065em 0.4em;
@@ -25,11 +46,6 @@
   padding: 0;
   background: none;
   font-size: 1.2em;
-  @apply font-mono;
-}
-
-html.dark .prose pre.astro-code {
-  background-color: hsl(231, 30%, 12%) !important;
 }
 
 html.dark .prose img {
