@@ -6,10 +6,10 @@ import '../styles/index.css'
 
 export interface Props {
   title: string
-  isBold?: boolean
+  isPost?: boolean
 }
 
-const { title, isBold } = Astro.props
+const { title, isPost } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ const { title, isBold } = Astro.props
   </head>
   <body class="transition-[background-color] ease-in-out duration-500 bg-day dark:bg-dark">
     <Header />
-    <main class:list={['p-7', { 'font-bold': isBold }]}>
+    <main class:list={['p-7', { 'font-bold': !isPost }]}>
       <div class="mx-auto prose prose-a:no-underline mb-4 dark:prose-invert">
         <slot name="headline" />
       </div>

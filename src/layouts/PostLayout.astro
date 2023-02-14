@@ -6,7 +6,7 @@ const { frontmatter } = Astro.props
 const { title, date, minutesRead } = frontmatter
 ---
 
-<Layout title={title}>
+<Layout title={title} isPost>
   <div slot="headline">
     <h1>{title}</h1>
     <p class="text-gray-500 font-serif dark:text-gray-300">
