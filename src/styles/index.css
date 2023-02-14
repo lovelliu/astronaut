@@ -21,14 +21,25 @@ html {
   color-scheme: var(--color-scheme);
   overflow-y: scroll;
   overflow-x: auto;
+  --sunny-icon: inline-block;
+  --moon-icon: none;
 }
 html.dark {
   --bg-dot-color: white;
   --color-scheme: dark;
+  --sunny-icon: none;
+  --moon-icon: inline-block;
 }
 html {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+[astro-icon="ion:sunny-outline"] {
+  display: var(--sunny-icon);
+}
+[astro-icon="ion:moon-outline"] {
+  display: var(--moon-icon);
 }
 
 ::-webkit-scrollbar {
