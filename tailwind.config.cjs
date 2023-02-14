@@ -19,8 +19,7 @@ module.exports = {
         dark: 'hsl(217, 24%, 17%)',
       },
       fontFamily: {
-        sans: ['LXGW WenKai', 'sans-serif'],
-        mono: ['LXGW WenKai Mono', 'sans-serif'],
+        sans: ['LXGW WenKai Lite'],
       },
     },
   },
