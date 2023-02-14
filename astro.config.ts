@@ -5,7 +5,6 @@ import remarkToc from 'remark-toc'
 import { setThemeIntegration } from './src/utils/setThemeIntegration'
 import { remarkReadingTime } from './src/utils/readingTime'
 
-// https://astro.build/config
 export default defineConfig({
   integrations: [
     tailwind({
@@ -16,7 +15,7 @@ export default defineConfig({
     setThemeIntegration(),
     sitemap(),
   ],
-  site: 'https://lovelliu.me',
+  site: 'https://lovelliu.me/',
   markdown: {
     remarkPlugins: [remarkReadingTime, [remarkToc, { maxDepth: 3, tight: true }]],
     shikiConfig: {
