@@ -36,10 +36,6 @@ html.dark .prose img {
   filter: brightness(0.8);
 }
 
-ul {
-  font-size: 1.1rem;
-}
-
 #toc {
   display: none;
 }
