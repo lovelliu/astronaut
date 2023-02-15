@@ -4,7 +4,7 @@
   --astro-code-token-constant: #575279;
   --astro-code-token-string: #ea9d34;
   --astro-code-token-comment: #9893a5;
-  --astro-code-token-keyword: #286983;
+  --astro-code-token-keyword: #0891b2;
   --astro-code-token-parameter: #0d9488;
   --astro-code-token-function: #D7827E;
   --astro-code-token-string-expression: #EA9D34;
@@ -16,7 +16,6 @@
   --astro-code-color-text: #a1a1aa;
   --astro-code-color-background: #111827;
   --astro-code-token-constant: #a1a1aa;
-  --astro-code-token-keyword: #0891b2;
   --astro-code-token-punctuation: #cbd5e1;
 }
 
