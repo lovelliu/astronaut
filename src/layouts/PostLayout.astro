@@ -18,27 +18,32 @@ const { title, date, minutesRead } = frontmatter
 </Layout>
 
 <script>
-window.addEventListener('load', () => {
-  const headlines = document.querySelectorAll('h2:not([id=toc]), h3')
-  const scrollHandler = (entries: IntersectionObserverEntry[]) => {
-    entries.forEach((entry) => {
-      const id = encodeURIComponent(entry.target.getAttribute('id')!)
-      const activeLink = document.querySelector('#toc + ul a.active')
-      const link = document.querySelector(`#toc + ul a[href="#${id}"]`)
-      if (entry.isIntersecting) {
-        activeLink?.classList.remove('active')
-        link?.classList.add('active')
-      }
+const headlines = document.querySelectorAll('h2:not([id=toc]), h3')
+const handleScroll = () => {
+  const activeLink = document.querySelector('#toc + ul a.active')
+  const activeHref = activeLink?.getAttribute('href')
+  const filters: { top: number; href: string }[] = []
+  let targetHref = ''
+  headlines.forEach((headline) => {
+    const top = headline.getBoundingClientRect().top - document.documentElement.clientTop
+    if (top <= 65)
+      filters.push({ top, href: encodeURIComponent(headline.getAttribute('id')!) })
+  })
+
+  if (filters.length) {
+    const latest = filters.reduce((prev, cur) => {
+      return cur.top > prev.top ? cur : prev
     })
+    targetHref = latest.href
   }
 
-  const observer = new IntersectionObserver(scrollHandler, {
-    rootMargin: '0% 0px -90% 0px',
-  })
-  headlines.forEach((headline) => {
-    observer.observe(headline)
-  })
-})
+  if (activeHref !== targetHref) {
+    activeLink?.classList.remove('active')
+    const targetLink = document.querySelector(`#toc + ul a[href="#${targetHref}"]`)
+    targetLink?.classList.add('active')
+  }
+}
+window.addEventListener('scroll', handleScroll)
 </script>
 
 <style is:global>
