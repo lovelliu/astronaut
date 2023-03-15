@@ -8,7 +8,7 @@ date: 2023-1-8
 ## TOC
 
 ## 前言
-正常情况下，网站采用都是白底黑字的模式，在白天感觉很正常，但到了晚上，光线变弱，白底会让人感到刺眼，因此为了在夜间或光线昏暗的环境减小对人眼的刺激，一种采用黑底白字的模式应运而生 - **深色模式（Dark Mode）**。
+通常情况下，我们浏览的网站采用都是白底黑字的模式，在白天感觉很正常，但到了晚上，光线变弱，白底会让人感到刺眼，因此为了在夜间或光线昏暗的环境减小对人眼的刺激，一种采用黑底白字的模式应运而生 - **深色模式（Dark Mode）**。
 
 深色模式最早还要追溯到上世纪60～80年代的单色显示器，黑底绿字的展示方式成了当时的常态，这种模式备受程序员的喜爱，所以至今大部分程序员的终端都是黑底。真正使其流行是Apple在ios13上正式发布了深色模式，紧接着Windows10也进行了引入。所以现如今越来越多的网站都适配了深色模式，下面一起来看看如何实现网站的深色模式。
 
@@ -22,7 +22,7 @@ html {
 }
 
 body {
-	backgroud-color: var(--bg-color);
+	background-color: var(--bg-color);
 }
 ```
 
@@ -38,7 +38,7 @@ html.dark {
 }
 
 body {
-	backgroud-color: var(--bg-color);
+	background-color: var(--bg-color);
 }
 ```
 
@@ -57,7 +57,7 @@ html.dark {
 }
 
 body {
-	backgroud-color: var(--bg-color);
+	background-color: var(--bg-color);
 }
 ```
 
@@ -99,7 +99,7 @@ toggleButton.addEventListener('click', () => {
 	}
 	else {
 		document.documentElement.classList.add('dark')
-		lcoalStorage.setItem('theme', 'dark')
+		localStorage.setItem('theme', 'dark')
 	}
 })
 ```
