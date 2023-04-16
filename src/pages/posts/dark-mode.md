@@ -34,7 +34,7 @@ html {
 }
 
 html.dark {
-	--bg-color: black; /* 给html元素加上dark类名后页面背景变为黑色 */
+	--bg-color: black; /* 给 html 元素加上 dark 类名后页面背景变为黑色 */
 }
 
 body {
@@ -52,8 +52,8 @@ html {
 }
 
 html.dark {
-	--bg-color: black; /* 给html元素加上dark类名后页面背景变为黑色 */
-	--color-scheme: dark; /* 给html元素加上dark类名后文字和单色svg变为白色 */
+	--bg-color: black; /* 给 html 元素加上 dark 类名后页面背景变为黑色 */
+	--color-scheme: dark; /* 给 html 元素加上 dark 类名后文字和单色 svg 变为白色 */
 }
 
 body {
@@ -63,7 +63,7 @@ body {
 
 ## 用户偏好
 
-所以在定义后颜色颜色变量并在指定元素应用上后，就可以通过js来添加和移除 html 上的 dark 类来进行深浅色模式的切换。
+所以在定义后颜色颜色变量并在指定元素应用上后，就可以通过 js 来添加和移除 html 上的 dark 类来进行深浅色模式的切换。
 
 比如我们有一个 button 按钮，用户想点击它切换到自己喜欢的模式，就可以这么做：
 
@@ -110,7 +110,7 @@ toggleButton.addEventListener('click', () => {
 
 上面有两种模式供用户选择 - 用户通过手动设置 light 或 dark 来实现深色模式的切换并将一直保持在该模式下，还有一种是用户设置跟随系统（我们就给它称之为 **auto** 模式吧），例如 MacOS 设置日落后切换至深色模式，那我们的网站也要跟着切换，这时候该怎么去动态的改变 html 的 dark 类呢？
 
-CSS 中有一个媒体查询特性 [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) 用来设置对应对应系统主题下的样式，比如白天将会匹配 `@media (prefers-color-scheme: light)` 下的样式，但我们现在的方式需要去改变html的类名，也就是需要借助 js 来进行操作，所以要用到 [Window.matchMedia()](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) 方法去匹配该媒体查询，该方法返回一个 **媒体查询列表对象**（MediaQueryList），其有一个布尔类型的`matches`属性可以用来判断当前系统主题用来切换，比如我们有一个下拉列表，里面是白天，夜晚以及跟随系统三个选项，当用户选择了跟随系统这个选项后，先将 localStorage 中的 theme 设置为 auto，然后执行以下代码：
+CSS 中有一个媒体查询特性 [prefers-color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme) 用来设置对应对应系统主题下的样式，比如白天将会匹配 `@media (prefers-color-scheme: light)` 下的样式，但我们现在的方式需要去改变 html 的类名，也就是需要借助 js 来进行操作，所以要用到 [Window.matchMedia()](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) 方法去匹配该媒体查询，该方法返回一个 **媒体查询列表对象**（MediaQueryList），其有一个布尔类型的`matches`属性可以用来判断当前系统主题用来切换，比如我们有一个下拉列表，里面是白天，夜晚以及跟随系统三个选项，当用户选择了跟随系统这个选项后，先将 localStorage 中的 theme 设置为 auto，然后执行以下代码：
 
 ```javascript
 const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
@@ -283,7 +283,7 @@ export function toggleDarkMode() {
 export function toggle(mode: 'dark' | 'light'): void {
   if (mode === 'dark') {
     document.documentElement.classList.add('dark')
-	// other operations，例如操作DOM切换icon
+	// other operations，例如操作 DOM 切换icon
   }
   else {
     document.documentElement.classList.remove('dark')

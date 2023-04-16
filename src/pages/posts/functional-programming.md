@@ -92,7 +92,7 @@ pay(3);
 使用高阶函数的意义
 
 - 抽象可以帮我们屏蔽细节，只需要关注于我们所要实现的目标
-- 高阶函数是用来抽象通用的问题，比如filter高阶函数是将数组中符合条件的每一项给筛选出来，所以可以把解决这一问题的函数抽象为**过滤器**。
+- 高阶函数是用来抽象通用的问题，比如 filter 高阶函数是将数组中符合条件的每一项给筛选出来，所以可以把解决这一问题的函数抽象为**过滤器**。
 - 代码简洁
 
 ## 2. 纯函数(Pure functions)
@@ -115,14 +115,14 @@ console.log(arr.splice(0, 2)) // [5, 7]
 console.log(arr.splice(0, 2)) // []
 ```
 
-上述中slice函数返回的值永远相同为纯函数，相反splice则不是纯函数。
+上述中 slice 函数返回的值永远相同为纯函数，相反 splice 则不是纯函数。
 
 纯函数的优势：
 
 1. 对纯函数的结果进行缓存
 
 ```javascript
-// 记忆函数(模拟lodash中memoize方法)
+// 记忆函数(模拟 lodash 中 memoize 方法)
 // const _ = require('lodash');
 
 // function getArea(r) {
@@ -184,7 +184,7 @@ const isArray = isType('Array')
 const isObj = isType('Object')
 
 
-// 模拟bind方法
+// 模拟 bind 方法
 Function.prototype.bind = function (context, ...args) {
   return (...rest) => this.call(context, ...args, ...rest)
 }
@@ -202,7 +202,7 @@ console.log(curried(1)(2, 3)); // 6
 console.log(curried(2, 3)(1)); // 6
 ```
 
-模拟lodash的curry
+模拟 lodash 的curry
 
 ```javascript
 function curry(fn) {
@@ -277,12 +277,12 @@ const trace = _.curry((tag, val) => {
   console.log(tag, val);
   return val;
 })
-const f = _.flowRight(join('-'), _.toLower, trace('split之前'), split(' ')); // toLower将数组转换成字符串，所以要借助map方法对数组的每一项单独处理
+const f = _.flowRight(join('-'), _.toLower, trace('split之前'), split(' ')); // toLower将数组转换成字符串，所以要借助 map 方法对数组的每一项单独处理
 ```
 
 lodash中的`fp`模块(函数友好式编程)提供的方法已进行柯里化处理，并且遵循**函数优先，数据其后**的原则，使用`fp`模块的方法可以简化上述代码。
 
-lodash的map方法会给传过来的函数三个参数：数组项、数组项索引以及该数组，而`fp`模块只传递数组项这一个函数。
+lodash的 map 方法会给传过来的函数三个参数：数组项、数组项索引以及该数组，而`fp`模块只传递数组项这一个函数。
 
 ## 6. Point Free
 
@@ -303,7 +303,7 @@ console.log(f('Hello    World'))
 
 ## 7. 函子(Functor)
 
-概念：包含值与值的变形关系(函数)称为**容器**， 而函子就是一个特殊的容器，通过一个普通的对象来实现，该对象具有map方法，map方法可以运行一个函数对值进行处理(变形关系)
+概念：包含值与值的变形关系(函数)称为**容器**， 而函子就是一个特殊的容器，通过一个普通的对象来实现，该对象具有 map 方法，map方法可以运行一个函数对值进行处理(变形关系)
 
 作用：函子可以控制副作用以及异常处理异常操作
 
@@ -326,7 +326,7 @@ class Container {
 const r = Container.of(5).map(x => x + 1).map(x => x * x);
 ```
 
-上述代码如果传一个null将会报错，所以需要**MayBe**函子来进行处理错误：
+上述代码如果传一个 null 将会报错，所以需要**MayBe**函子来进行处理错误：
 
 ```javascript
 class MayBe {
@@ -348,7 +348,7 @@ class MayBe {
 }
 ```
 
-MayBe函数可以解决传递空值的问题，但是如果在调用map方法传递的函数返回空值时无法得出是哪个环节出了问题。
+MayBe函数可以解决传递空值的问题，但是如果在调用 map 方法传递的函数返回空值时无法得出是哪个环节出了问题。
 
 **Either**函子：进行异常处理
 
@@ -395,7 +395,7 @@ function parseJSON(str) {
 const r = parseJSON('{ name: zs }'); // 函子中存储错误信息
 ```
 
-**IO**函子：内部的_value是一个函数，把函数作为值进行处理。该函子可以把不纯的动作存储到 _value中，延迟执行这个不纯的动作(惰性执行)。最后将不纯的操作交给调用者处理。
+**IO**函子：内部的 _value 是一个函数，把函数作为值进行处理。该函子可以把不纯的动作存储到 _value中，延迟执行这个不纯的动作(惰性执行)。最后将不纯的操作交给调用者处理。
 
 ```javascript
 const fp = require('lodash/fp');
@@ -463,7 +463,7 @@ readFile('package.json')
 })
 ```
 
-**Pointed**函子：实现了of静态方法的函子。
+**Pointed**函子：实现了 of 静态方法的函子。
 
 IO函子的问题:
 
@@ -506,7 +506,7 @@ const r = cat('package.json')._value()._value();
 console.log(r);
 ```
 
-**Monad**函子是可以变扁的Pointed函子，IO(IO(x))，一个函子如果具有join和of两个方法并遵守一些定律就是一个Monad。
+**Monad**函子是可以变扁的 Pointed 函子，IO(IO(x))，一个函子如果具有 join 和of两个方法并遵守一些定律就是一个Monad。
 
 ```javascript
 const fs = require('fs');
@@ -531,7 +531,7 @@ class Monad {
     return this._value();
   }
   
-  // 同时调用map和join
+  // 同时调用 map 和join
   flatMap(fn) {
     return this.map(fn).join();
   }

@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/PostLayout.astro
-title: 实现一个打包时将CSS注入到JS的Vite插件
+title: 实现一个打包时将 CSS 注入到 JS 的Vite插件
 author: Lovell Liu
 date: 2022-7-15
 ---
@@ -26,7 +26,7 @@ import 'xxx-component/dist/xxx.css'; // 引入样式
 
 但我封装的只是单一组件，样式不多且只应用于该组件上，没有那么复杂的样式系统。
 
-所以打包时比较好的做法是配置构建工具将样式注入到 **JS 文件** 中，从而无需再多一行引入语句。我们知道 `Webpack` 打包是可以进行配置来通过一个 **自执行函数** 在DOM上创建 `style` 标签并将 CSS 注入其中，最后只输出**JS文件**，但在 `Vite` 的官方文档中似乎并没有告诉我们怎么去配置。
+所以打包时比较好的做法是配置构建工具将样式注入到 **JS 文件** 中，从而无需再多一行引入语句。我们知道 `Webpack` 打包是可以进行配置来通过一个 **自执行函数** 在 DOM 上创建 `style` 标签并将 CSS 注入其中，最后只输出**JS文件**，但在 `Vite` 的官方文档中似乎并没有告诉我们怎么去配置。
 
 让我们先来看一下官方提供的配置：
 
@@ -65,7 +65,7 @@ export default defineConfig({
 
 配置完上述提及到的后，我接着寻找与打包样式相关的内容，然而并没有发现。。。
 
-没关系，我们还可以去仓库 [`issues`](https://github.com/vitejs/vite/issues/1579) 看看，说不定有人也发现了这个问题。搜索后果不其然，底下竟有高达47条评论：
+没关系，我们还可以去仓库 [`issues`](https://github.com/vitejs/vite/issues/1579) 看看，说不定有人也发现了这个问题。搜索后果不其然，底下竟有高达 47 条评论：
 
 ![Image.png](https://res.craft.do/user/full/a00fc09b-5dd0-bc21-aaeb-f7e491dce279/doc/A0CDE640-6014-45DA-9344-0BEB70545D6B/8ACB2607-B0C3-4ACE-A7E3-C8F4E3D2F0D7_2/5lTfTDdm5Up73RrFPpdMukYJwKdrzy9U2Je8H5dMiAYz/Image.png)
 
@@ -79,7 +79,7 @@ export default defineConfig({
 
 ## Vite Plugin API
 
-`Vite` 插件提供的 API 实际上是一些 `hook`，其划分为`Vite`独有hook和通用hook（`Rollup`的 hook，由 `Vite` 插件容器进行调用）。这些hook执行的顺序为：
+`Vite` 插件提供的 API 实际上是一些 `hook`，其划分为`Vite`独有 hook 和通用hook（`Rollup`的 hook，由 `Vite` 插件容器进行调用）。这些 hook 执行的顺序为：
 
 - Alias
 - 带有 `enforce: 'pre'` 的用户插件
@@ -217,11 +217,11 @@ function VitePluginStyleInject(): Plugin {
         }
       }
 
-      // + 重新遍历bundle，一次遍历无法同时实现提取注入，例如'style.css'是bundle的最后一个键
+      // + 重新遍历bundle，一次遍历无法同时实现提取注入，例如'style.css'是 bundle 的最后一个键
       for (const key in bundle) {
         if (bundle[key]) {
           const chunk = bundle[key];
-          // 判断是否是JS文件名的chunk
+          // 判断是否是 JS 文件名的chunk
           if (chunk.type === 'chunk' &&
             chunk.fileName.match(/.[cm]?js$/) !== null &&
             !chunk.fileName.includes('polyfill')
@@ -234,7 +234,7 @@ function VitePluginStyleInject(): Plugin {
             chunk.code += 'document.head.appendChild(elementStyle);} catch(e) {console.error(\'vite-plugin-css-injected-by-js\', e);} })();';
             // 拼接原有代码
             chunk.code += initialCode;
-            break; // 一个bundle插入一次即可
+            break; // 一个 bundle 插入一次即可
           }
         }
       }
@@ -269,11 +269,11 @@ function VitePluginStyleInject(styleId: ''): Plugin {
         }
       }
 
-      // 重新遍历bundle，一次遍历无法同时实现提取注入，例如'style.css'是bundle的最后一个键
+      // 重新遍历bundle，一次遍历无法同时实现提取注入，例如'style.css'是 bundle 的最后一个键
       for (const key in bundle) {
         if (bundle[key]) {
           const chunk = bundle[key];
-          // 判断是否是JS文件名的chunk
+          // 判断是否是 JS 文件名的chunk
           if (chunk.type === 'chunk' &&
             chunk.fileName.match(/.[cm]?js$/) !== null &&
             !chunk.fileName.includes('polyfill')
@@ -289,7 +289,7 @@ function VitePluginStyleInject(styleId: ''): Plugin {
             chunk.code += 'document.head.appendChild(elementStyle);} catch(e) {console.error(\'vite-plugin-css-injected-by-js\', e);} })();';
             // 拼接原有代码
             chunk.code += initialCode;
-            break; // 一个bundle插入一次即可
+            break; // 一个 bundle 插入一次即可
           }
         }
       }

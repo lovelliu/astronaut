@@ -23,17 +23,17 @@ React18 + Vanilla-Extract + Vite
 
 ![Image.png](https://res.craft.do/user/full/a00fc09b-5dd0-bc21-aaeb-f7e491dce279/doc/B6C44B95-FF35-4A85-8FD2-AB366F863773/994E0A66-CB2B-4D4A-AF9A-9F9146886CDC_2/3WVaeelijpyru4y0Ip3f1hxv3Rgkjteyf9T3hoNk4Xcz/Image.png)
 
-首先在最外层我们使用 [figure](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) 标签来包裹，里面放上`video`元素，为了实现**关灯**功能，我们在`video`元素下面放置一个`div`标签，设置宽高分别为100vw和100vh，使其撑满整个页面，并设置固定定位使其**脱离文档流。**
+首先在最外层我们使用 [figure](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) 标签来包裹，里面放上`video`元素，为了实现**关灯**功能，我们在`video`元素下面放置一个`div`标签，设置宽高分别为 100vw 和100vh，使其撑满整个页面，并设置固定定位使其**脱离文档流。**
 
 ![Image.png](https://res.craft.do/user/full/a00fc09b-5dd0-bc21-aaeb-f7e491dce279/doc/B6C44B95-FF35-4A85-8FD2-AB366F863773/876D2F2A-EA34-42AB-9619-145DD3CAD0DD_2/CG6nB7JNnGaTpuk7bgqskL2idnD30Lfsoop4XJ5x3Ekz/Image.png)
 
-由于视频播放会处于加载状态，我们需要加上loading动画，提高用户体验，因此下面放置**加载缓冲**组件，最后是核心组件`Controller`，外面包裹上`Context`，用于向下传递组件的通用数据。
+由于视频播放会处于加载状态，我们需要加上 loading 动画，提高用户体验，因此下面放置**加载缓冲**组件，最后是核心组件`Controller`，外面包裹上`Context`，用于向下传递组件的通用数据。
 
 ### Controller
 
 ![Image.png](https://res.craft.do/user/full/a00fc09b-5dd0-bc21-aaeb-f7e491dce279/doc/B6C44B95-FF35-4A85-8FD2-AB366F863773/D60F02D9-CAC9-4D64-B2C8-F8E0D4D25F13_2/qFiedeWX7y2zrxNUM6XT7z6A0PdtZLyq7osHP4RXxMMz/Image.png)
 
-controller组件是整个组件的核心组件，为了能够检测到鼠标的**移入需**撑满整个组件，覆盖在video元素上面。
+controller组件是整个组件的核心组件，为了能够检测到鼠标的**移入需**撑满整个组件，覆盖在 video 元素上面。
 
 里面包含一片区域用于检测鼠标是否进行点击来播放/暂停视频。下面放入进度条和视频控件：
 
@@ -58,12 +58,12 @@ controller组件是整个组件的核心组件，为了能够检测到鼠标的*
 
 ## Core
 
-为了实现组件的自定义配置，我们需要将父组件传入的数据通过`props`出入视频组件内部，例如组件的宽高，视频的src等。
+为了实现组件的自定义配置，我们需要将父组件传入的数据通过`props`出入视频组件内部，例如组件的宽高，视频的 src 等。
 
-首先通过`useRef`钩子来获取一些DOM元素：
+首先通过`useRef`钩子来获取一些 DOM 元素：
 
 ```typescript
-// 对应figure标签
+// 对应 figure 标签
 const videoContainerRef = useRef<HTMLElement>(null!);
 
 const lightOffMaskRef = useRef<HTMLDivElement>(null);
@@ -106,11 +106,11 @@ timerToCheckVideoIsUseful.current = setTimeout(() => {
     }, 3000);
 ```
 
-接下来给video元素添加两个事件：`waiting`和`playing`，当视频等待加载时设置`Buffer`组件显示，播放时进行隐藏，`useEffect`返回的回调函数中清除定时器和这两个事件，至此`useEffect`中的工作完成。
+接下来给 video 元素添加两个事件：`waiting`和`playing`，当视频等待加载时设置`Buffer`组件显示，播放时进行隐藏，`useEffect`返回的回调函数中清除定时器和这两个事件，至此`useEffect`中的工作完成。
 
 ### useVideo hook
 
-该hook主要用于定义video元素的一些参数并为其添加一些事件监听，这些参数以对象的形式存储在`useRef`返回的对象中，这是`useRef`的另一个用法，主要是解决数据改变触发`React`频繁更新的问题，使用`useRef`后数据会响应式改变，但页面并不会更新，能够提高性能，如果想更新，可以通过`useState`返回的`setState`进行调用来强制更新，`useReducer`也同样可以实现：
+该 hook 主要用于定义 video 元素的一些参数并为其添加一些事件监听，这些参数以对象的形式存储在`useRef`返回的对象中，这是`useRef`的另一个用法，主要是解决数据改变触发`React`频繁更新的问题，使用`useRef`后数据会响应式改变，但页面并不会更新，能够提高性能，如果想更新，可以通过`useState`返回的`setState`进行调用来强制更新，`useReducer`也同样可以实现：
 
 ```typescript
 const useMandatoryUpdate = () => {
@@ -297,7 +297,7 @@ const contextProps = useMemo(() => {
   }, [videoRef.current, videoFlow, options]);
 ```
 
-除了向内传递数据，在使用视频组件的时候也需要向外传递组件的一些参数，我们使用`useImperativeHandle`这个hook来向外传递组件内部数据。
+除了向内传递数据，在使用视频组件的时候也需要向外传递组件的一些参数，我们使用`useImperativeHandle`这个 hook 来向外传递组件内部数据。
 
 ```typescript
 useImperativeHandle(ref, () => {
@@ -357,7 +357,7 @@ useEffect(() => {
 
 ### 缓冲条和播放条
 
-遇到视频进度条时，除了当前进度外还有一条白色的进度条，这就是缓冲条，表示**当前缓冲的进度**，其默认宽度设为0%，然后根据`useVideo`返回的已缓冲时间`bufferedTime`和总时长`duration`相除并乘以100得到百分比：
+遇到视频进度条时，除了当前进度外还有一条白色的进度条，这就是缓冲条，表示**当前缓冲的进度**，其默认宽度设为0%，然后根据`useVideo`返回的已缓冲时间`bufferedTime`和总时长`duration`相除并乘以 100 得到百分比：
 
 ```typescript
 const calculateBufferedPercent = useMemo(() => {
@@ -408,7 +408,7 @@ export const useProgress = () => {
 
 ### 拖动条
 
-为了检测鼠标是否放在进度条区域，我们设置一个高度较大的区域覆盖在进度条上，当鼠标放在该区域上则通过`mousemove`来进行监听，派发`isMovingProgress`事件的值为true，并且在`useEffect`中给判断`isMovingProgress`的值来控制进度条的高度和小圆点的显示，当用户离开该区域则设置`isMovingProgress`为false恢复之前的状态。
+为了检测鼠标是否放在进度条区域，我们设置一个高度较大的区域覆盖在进度条上，当鼠标放在该区域上则通过`mousemove`来进行监听，派发`isMovingProgress`事件的值为true，并且在`useEffect`中给判断`isMovingProgress`的值来控制进度条的高度和小圆点的显示，当用户离开该区域则设置`isMovingProgress`为 false 恢复之前的状态。
 
 接下来在`mousemove`事件中通过计算**鼠标的距离左侧视口的距离**和**拖动条距离左侧视口的距离**之差来求得当前鼠标在进度条上的位置，然后通过与拖动条的宽度比来求出**当前视频播放比：**
 
@@ -425,7 +425,7 @@ const popCurrentVideoImgBox = (e: MouseEvent) => {
   };
 ```
 
-如果直接点击则直接修改video的`currentTime`为上面移动过程中获取的百分比然后乘以总时长即可改变当前进度。
+如果直接点击则直接修改 video 的`currentTime`为上面移动过程中获取的百分比然后乘以总时长即可改变当前进度。
 
 当开始拖动该区域时鼠标处于`press`状态，使用`onmousedown`进行监听，计算出当前进度位置后，调用`updateCurrentTime`这个函数来进行更新进度：
 
@@ -454,7 +454,7 @@ const updateCurrentTime = (
   };
 ```
 
-由于拖拽到释放鼠标过程中只会执行一次`mousedown`事件，所以我们添加一个循环定时器，按照1ms一次的频率执行更新，当触发鼠标拖拽事件的回调函数时，开启该定时器进行持续更新，当用户释放鼠标执行事件移除操作：
+由于拖拽到释放鼠标过程中只会执行一次`mousedown`事件，所以我们添加一个循环定时器，按照 1ms 一次的频率执行更新，当触发鼠标拖拽事件的回调函数时，开启该定时器进行持续更新，当用户释放鼠标执行事件移除操作：
 
 ```typescript
 const changeCurrentTime = () => {
@@ -462,7 +462,7 @@ const changeCurrentTime = () => {
     interval.current && clearInterval(interval.current);
     interval.current = setInterval(() => {
       const seekPositionX
-        // 使用useWindowClient获取鼠标的位置
+        // 使用 useWindowClient 获取鼠标的位置
         = clientXDistance.current
         - progressSeekMaskRef.current.getBoundingClientRect().left
         + 1;
@@ -488,11 +488,11 @@ const changeCurrentTime = () => {
   }, [currentTime, duration, progressState.isDrag]);
 ```
 
-注意：在更新时我们重新计算了鼠标在进度上的位置，为什么不使用鼠标在区域上移动时获取的位置？主要原因是拖拽回调只会执行一次，此时的内部获取的位置是拖拽时的位置，拖拽过程中位置的更新在循环定时器中无法获取到，另外用户在拖拽期间鼠标有可能脱离的检测移动的区域，所以要封装一个hook来重新检测鼠标的位置。
+注意：在更新时我们重新计算了鼠标在进度上的位置，为什么不使用鼠标在区域上移动时获取的位置？主要原因是拖拽回调只会执行一次，此时的内部获取的位置是拖拽时的位置，拖拽过程中位置的更新在循环定时器中无法获取到，另外用户在拖拽期间鼠标有可能脱离的检测移动的区域，所以要封装一个 hook 来重新检测鼠标的位置。
 
 ### useWindowClient hook
 
-由于在拖拽期间我们要更新显示**播放条**的进度，所以需要即时获取鼠标距离左视口的位置，而拖拽的鼠标事件只能获取到刚进行拖拽时的鼠标位置，所以需要封装一个hook来辅助：
+由于在拖拽期间我们要更新显示**播放条**的进度，所以需要即时获取鼠标距离左视口的位置，而拖拽的鼠标事件只能获取到刚进行拖拽时的鼠标位置，所以需要封装一个 hook 来辅助：
 
 ```typescript
 const useWindowClient = (): useWindowSizeType => {
@@ -540,7 +540,7 @@ const useWindowClient = (): useWindowSizeType => {
 
 ### useControls
 
-为了记录控件的具体信息，封装一个hook来进行管理：
+为了记录控件的具体信息，封装一个 hook 来进行管理：
 
 ```typescript
 const useControls = () => {
@@ -584,11 +584,11 @@ const useControls = () => {
 
 位于左下角的该组件用于展示已播放时长和总时长，以及一个播放暂停按钮。
 
-在`Controls`组件中使用`useVideo`获取到视频元素的参数信息，将`currentTime`和`duration`转换成分钟和秒的形式后和`isPlay`传递给该组件即可，组件内更新播放暂停Icon时通过判断`isPlay`来进行切换。
+在`Controls`组件中使用`useVideo`获取到视频元素的参数信息，将`currentTime`和`duration`转换成分钟和秒的形式后和`isPlay`传递给该组件即可，组件内更新播放暂停 Icon 时通过判断`isPlay`来进行切换。
 
 ### Quality
 
-该组件只有传入画质列表且列表长度不为0才会进行展示，为了控制画质列表的展示，我们通过使用`useState`返回的`setIsShow`来进行设置，当点击该组件时设置取反，鼠标离开后设置false。
+该组件只有传入画质列表且列表长度不为 0 才会进行展示，为了控制画质列表的展示，我们通过使用`useState`返回的`setIsShow`来进行设置，当点击该组件时设置取反，鼠标离开后设置false。
 
 通过`map`来遍历渲染画质列表，给每一项添加点击事件。
 
@@ -605,7 +605,7 @@ const qualityToggle: QualityToggleType = (url, key) => {
 
 ### Multiple
 
-倍速组件使用`map`渲染默认列表并添加点击事件，在其中执行父组件传递过来的回调函数将当前点击的选项数据传递并调用，然后设置video元素的`playbackRate`属性。
+倍速组件使用`map`渲染默认列表并添加点击事件，在其中执行父组件传递过来的回调函数将当前点击的选项数据传递并调用，然后设置 video 元素的`playbackRate`属性。
 
 ### Set
 
@@ -665,7 +665,7 @@ export const capture = (video: HTMLVideoElement, scaleFactor = 0.25) => {
 };
 ```
 
-当点击截图的icon时，调用`Controller`传递进来的`setIsScreenshot`显示截图界面，由于`setState`方法异步执行，Dom并没有更新，所以我们拿不到相应的Dom元素，所以应该在setTimeout中调用`caputre`方法：
+当点击截图的 icon 时，调用`Controller`传递进来的`setIsScreenshot`显示截图界面，由于`setState`方法异步执行，Dom并没有更新，所以我们拿不到相应的 Dom 元素，所以应该在 setTimeout 中调用`caputre`方法：
 
 ```typescript
 // controls.tsx

@@ -7,7 +7,7 @@ date: 2021-10-7
 
 ## TOC
 
-## 一、创建TCP通信
+## 一、创建 TCP 通信
 
 进行通信依赖于底层的**net**模块。
 
@@ -15,7 +15,7 @@ date: 2021-10-7
 
 - listening事件：调用server.listen方法后触发
 - connection事件：新的连接建立时触发
-- close事件：当server关闭时触发
+- close事件：当 server 关闭时触发
 - error事件：当错误出现的时候触发
 
 创建服务端：
@@ -93,7 +93,7 @@ client.on('close', () => {
 
 这种设计可以减少**I/O**操作带来的性能消耗，但会带来数据的**粘包**问题。
 
-在上述的创建TCP中如果将客户端发送数据的回调中多写入几条数据：
+在上述的创建 TCP 中如果将客户端发送数据的回调中多写入几条数据：
 
 ```javascript
 // client.js
@@ -126,7 +126,7 @@ const dataArr = ['hello, server', 'hello1, server', 'hello2, server', 'hello3, s
 
 client.on('connect', () => {
 	for (let i = 0; i < dataArr.length; i++) {
-    // 使用闭包保留每次i的值
+    // 使用闭包保留每次 i 的值
 		(function (val, index) {
 			setTimeout(() => {
 				client.write(val);
@@ -170,7 +170,7 @@ class MyTransformCode {
   // 编码
   encode(data, serialNum) {
     const body = Buffer.form(data);
-    // 先按照指定的长度来申请一片内存空间作为header来使用
+    // 先按照指定的长度来申请一片内存空间作为 header 来使用
     const headerBuf = Buffer.alloc(this.packageHeaderLen);
     
     // 写入
@@ -228,7 +228,7 @@ console.log(ts.decode(ts.encode(str1, 1))); // 返回解码信息
 ```javascript
 // server.js
 const MyTransform = require('./myTransform.js');
-// 未处理完buffer进行存储
+// 未处理完 buffer 进行存储
 let overageBuffer = null;
 const ts = new MyTransform();
 
@@ -280,7 +280,7 @@ client.on('data', (chunk) => {
 
 ### 1. http协议
 
-http协议位于应用层，是web服务常用的协议。
+http协议位于应用层，是 web 服务常用的协议。
 
 ```javascript
 // server.js
@@ -292,13 +292,13 @@ server.listen(1234, () => {
 })
 server.on('connection', (socket) => {
   socket.on('data', (data) => {
-    console.log(data.toString()) // 输出了http请求的内容
+    console.log(data.toString()) // 输出了 http 请求的内容
   })
   socket.end('test');
 })
 ```
 
-接下来使用Node中的http模块来创建服务器：
+接下来使用 Node 中的 http 模块来创建服务器：
 
 ```javascript
 // httpServer.js
@@ -311,16 +311,16 @@ server.listen(1234, () => {
 })
 ```
 
-### 2. 获取http请求信息
+### 2. 获取 http 请求信息
 
-- 获取请求路径信息，使用Node推荐的**WHATWG URL API**来代替**url.parse()**。
-- 获取http版本号：req.httpVersion
+- 获取请求路径信息，使用 Node 推荐的**WHATWG URL API**来代替**url.parse()**。
+- 获取 http 版本号：req.httpVersion
 
 ```javascript
 const http = require('http');
 
 const server = http.createServer((req, res) => {
-  // 获取请求路径 req.url为host后面的部分
+  // 获取请求路径 req.url为 host 后面的部分
   const url = new URL(req.url, `http://${req.headers.host}`);
   console.log(url);
   /*
@@ -356,7 +356,7 @@ const server = http.createServer((req, res) => {
 })
 ```
 
-### 3. 设置http响应
+### 3. 设置 http 响应
 
 根据客户端请求来进行相应的响应：
 
@@ -412,15 +412,15 @@ server.listen(5000, () => {
 
 http协议有一个缺陷，通信只能由客户端发起然后服务端返回查询，做不到服务端主动向客户端推送信息。比如聊天，由于服务端无法主动请求，所以客户端就无法得知对方什么时候给自己发消息，虽然可以采用客户端**轮询**的方式，但缺点也很明显，轮询请求过快，服务端资源开销会增加，过慢，则不能实时返回消息。
 
-所以才出现了WebSocket协议，与http协议一样，属于应用层协议。
+所以才出现了 WebSocket 协议，与 http 协议一样，属于应用层协议。
 
 > #### WebSocket
 
 ### 1. 介绍
 
-Websocket是一个持久化的网络通信协议，依赖http进行一次握手，服务端可以主动推送。 由来：由于http是非持久化的协议，客户端要想知道服务端的处理进度只能通过短轮询或长轮询来实现。
+Websocket是一个持久化的网络通信协议，依赖 http 进行一次握手，服务端可以主动推送。 由来：由于 http 是非持久化的协议，客户端要想知道服务端的处理进度只能通过短轮询或长轮询来实现。
 
-特点：可以在单个TCP连接上实现全双工通信，没有了Request和Response的概念，连接一旦建立，双方可以实时的进行双向数据传输
+特点：可以在单个 TCP 连接上实现全双工通信，没有了 Request 和Response的概念，连接一旦建立，双方可以实时的进行双向数据传输
 
 应用场景：弹幕，聊天室，视频会议，消息订阅，协同编辑等应用实时监听服务端变化
 
@@ -429,8 +429,8 @@ Websocket是一个持久化的网络通信协议，依赖http进行一次握手�
 **请求首部：**
 
 - Connection：Upgrade：表示要升级协议
-- Upgrade： websocket：升级到websocket协议
-- Sec-Websocket-Version：13：表示websocket版本
+- Upgrade： websocket：升级到 websocket 协议
+- Sec-Websocket-Version：13：表示 websocket 版本
 - Sec-Websocket-Key：与服务端响应首部的Sec-Websocket-Accept是配套的，提供基本的防护，比如恶意连接或者无意的连接
 
 **响应首部：**
@@ -438,7 +438,7 @@ Websocket是一个持久化的网络通信协议，依赖http进行一次握手�
 - 101 Switching Protocols 还未正式做出响应
 - Connection：Upgrade
 - Upgrade： websocket
-- Sec-Websocket-Accept：根据请求的key值生成，表示服务器同意建立连接
+- Sec-Websocket-Accept：根据请求的 key 值生成，表示服务器同意建立连接
 3. ### 心跳重连
 
 心跳机制：客户端每隔一段时间向服务端发送一个特有的心跳消息，每次服务端收到消息后只需要将消息返回，如果双方还保持着连接则客户端会收到消息，没收到则需要进行重连。

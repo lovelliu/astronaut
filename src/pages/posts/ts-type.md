@@ -25,11 +25,11 @@ Readonly类型实现：
 type Readonly<T> = { readonly [P in keyof T]: T[P] };
 ```
 
-`keyof`操作符的作用是将类型T的属性名组成联合类型返回，比如类型T 有x，y，z属性，最后返回x ｜ y ｜ z联合类型。
+`keyof`操作符的作用是将类型 T 的属性名组成联合类型返回，比如类型T 有x，y，z属性，最后返回x ｜ y ｜ z联合类型。
 
 ### 2、重映射
 
-在TS4.1版本中可以使用as子句对映射类型的键进行重映射(Key Remapping)：
+在TS4.1版本中可以使用 as 子句对映射类型的键进行重映射(Key Remapping)：
 
 ```typescript
 type PartialWithRemap<T> = { [P in keyof T as NewKeyType]: T[P] | undefined }
@@ -71,7 +71,7 @@ type NonNullable<T> = T extends null | undefined ? never : T
 
 ### 2. infer推断
 
-对于函数类型想要获取其参数或者return的返回类型就要用到infer关键字
+对于函数类型想要获取其参数或者 return 的返回类型就要用到 infer 关键字
 
 ```typescript
 type Parameters<T> = T extends (...args: infer P) ⇒ any ? P : never
@@ -85,7 +85,7 @@ type ReturnType<T> = T extends (...args: any) ⇒ infer R ? R : any
 
 ### 3. 分布式条件类型
 
-在条件类型中，如果被检查的类型是一个裸类型参数：没有被数组、元组或Promise等包装过，那么该条件类型被称为分布式条件类型。
+在条件类型中，如果被检查的类型是一个裸类型参数：没有被数组、元组或 Promise 等包装过，那么该条件类型被称为分布式条件类型。
 
 当分布式条件类型传入的类型是联合类型时，在运算过程中会被分解成多个分支
 
@@ -109,7 +109,7 @@ type User = {
 type UserPropertyType = PropertyType<User>; // number | string
 ```
 
-此时U所处的位置即是协变位置，该位置上同一个类型变量存在多个候选者的话，最终的类型将被推断为联合类型。
+此时 U 所处的位置即是协变位置，该位置上同一个类型变量存在多个候选者的话，最终的类型将被推断为联合类型。
 
 下面是一个逆变位置的例子：
 
@@ -141,7 +141,7 @@ type Pick<T, K extends keyof T> = { [P in K]: T[P] };
 
 ### 3. Omit
 
-[使用重映射实现Omit内置类型：](craftdocs://open?blockId=A0846306-58D8-4A11-B868-0BD9B0CE5A5B&spaceId=a00fc09b-5dd0-bc21-aaeb-f7e491dce279)
+[使用重映射实现 Omit 内置类型：](craftdocs://open?blockId=A0846306-58D8-4A11-B868-0BD9B0CE5A5B&spaceId=a00fc09b-5dd0-bc21-aaeb-f7e491dce279)
 
 ```typescript
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
